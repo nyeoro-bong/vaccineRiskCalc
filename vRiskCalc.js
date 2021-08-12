@@ -56,6 +56,7 @@ function getCSV(){
   csvfile.send(null);
   csvfile.onload = function(){
   convertCSVtoArray(csvfile.responseText);
+  csvfile = csvfile.responseText;
   };
 };
 
@@ -71,11 +72,9 @@ function convertCSVtoArray(str){ // 読み込んだCSVデータが文字列と�
   alert(result[1][2]); // 300yen
 }
 
-outputElement.innerHTML = result[1];
+outputElement.innerHTML = csvfile;
 
-  console.log(result[1]);
-  console.log(result[2]);
-  console.log(result[3]);
+console.log(csvfile);
   
   
 getCSV();
