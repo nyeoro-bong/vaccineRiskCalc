@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ワクチン摂取リスクチェッカー</title>
+</head>
+<body>
+
+  <h1>covid19 ワクチン摂取リスクチェッカー</h1>
+  <p>項目を入力して計算するボタンを押してください</p>
+
+  <p>名前
+  <input type="text" id="userName" size="40" maxlength="20"></p> 
+  <!-- <label for="user-age">年代を選択してください</label> -->
+  <p>年代
+  <select name="userAge" id="userAge">
+    <option value="10th">１０代</option>
+    <option value="20th">２０代</option>
+    <option value="30th">３０代</option>
+    <option value="40th">４０代</option>
+    <option value="50th">５０代</option>
+    <option value="60th">６０代</option>
+    <option value="70th">７０代</option>
+    <option value="80th">８０代以上</option>
+  </select></p>
+
+  <p>都道府県
+    <select name="userPref" id="userPref">
+      <option value="tokyo">東京</option>
+      <option value="hokkaido">北海道</option>
+      <option value="oosaka">大阪</option>
+      <option value="kyoto">京都</option>
+      <option value="aomori">青森</option>
+      <option value="akita">秋田</option>
+      <option value="iwawte">岩手</option>
+      <option value="yamagata">山形</option>
+    </select></p> 
+  
+  <p>ワクチン
+  <select name="userVac" id="userVac">
+    <option value="none">摂取しない</option>
+    <option value="phizer">ファイザー</option>
+    <option value="moderna">モデルナ</option>
+  </select></p>
+
+  <p>covid19致死＋重症化リスク
+  <button id="riskCalc">計算する</button></p>
+  <div id="output-area"></div>
+  <div id="tweet-area">
+      <!--
+      <script async src="https://platform.twitter.com/widgets.js" charset="UTF-8"></script>
+      -->
+  </div>
+
+  <div id="output_csv"></div>
+
+  
+  <script src="vRiskCalc.js"></script>
+
+
+</body>
+</html>
