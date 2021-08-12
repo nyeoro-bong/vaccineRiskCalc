@@ -71,7 +71,7 @@ function convertCSVtoArray(str){ // 読み込んだCSVデータが文字列と�
   alert(result[1][2]); // 300yen
 }
 
-outputElement.innerHTML = csvfile;
+// outputElement.innerHTML = csvfile;
 
 getCSV();
 
