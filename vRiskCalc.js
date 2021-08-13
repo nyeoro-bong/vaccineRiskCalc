@@ -62,7 +62,7 @@ riskCalcButton.onclick = () => {
     for (let i = 0; i < lines.length; ++i) {
       csvData[i] = lines[i].split(',');
     };
-    return csvData;
+    // return csvData;
     // alert(result[1][2]); // 300yen
   };
 
