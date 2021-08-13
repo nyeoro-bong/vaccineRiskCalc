@@ -57,7 +57,7 @@ riskCalcButton.onclick = () => {
     reqCSV.send(null);
     reqCSV.onload = function () {
       convertCSVtoArray(reqCSV.responseText);
-      demCSV = reqCSV.responseText;
+      // demCSV = reqCSV.responseText;
     };
   };
 
@@ -69,13 +69,14 @@ riskCalcButton.onclick = () => {
     for (var i = 0; i < tmp.length; ++i) {
       result[i] = tmp[i].split(',');
     };
-
+    return result;
     // alert(result[1][2]); // 300yen
   };
 
-  outputElement.innerHTML = demCSV;
+  outputElement.innerHTML = result[1][2];
 
-  console.log(demCSV);
+  console.log(result[1]);
+  // console.log(demCSV);
 
 
   getCSV();
