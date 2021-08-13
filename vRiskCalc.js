@@ -75,7 +75,7 @@ riskCalcButton.onclick = () => {
 
   outputElement.innerHTML = result[1][2];
 
-  console.log(result[1]);
+  console.log(result[3]);
   // console.log(demCSV);
 
 
