@@ -49,7 +49,6 @@ riskCalcButton.onclick = () => {
 
   // getdata('./example.csv');    
 
-  let outputElement = document.getElementById('output_csv');
 
   function getCSV() {
     let csvData = [];
