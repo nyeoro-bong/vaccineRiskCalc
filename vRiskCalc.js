@@ -57,6 +57,7 @@ riskCalcButton.onclick = () => {
     dataD.send(null);
  
     let lines = dataD.responseText.split("\n"); // 改行を区切り文字として行を要素とした配列を生成
+    outputElement.innerHTML = lines;
 
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < lines.length; ++i) {
@@ -67,11 +68,11 @@ riskCalcButton.onclick = () => {
     // alert(result[1][2]); // 300yen
   }
 
-  outputElement.innerHTML = lines;
+  // outputElement.innerHTML = lines;
 
-  console.log(csvData[0]);
-  console.log(csvData[1]);
-  console.log(csvData[2]);
+  // console.log(csvData[0]);
+  // console.log(csvData[1]);
+  // console.log(csvData[2]);
   // console.log(demCSV);
 
 
