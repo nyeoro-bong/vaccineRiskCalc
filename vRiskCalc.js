@@ -7,6 +7,7 @@ let resultDivided = document.getElementById('result-area');
 let tweetDivided = document.getElementById('tweet-area');
 let outputElement = document.getElementById('output_csv');
 let message = 0;
+let demCSV = 0;
 
 riskCalcButton.onclick = () => {
   let uName = userNameImput.value;
@@ -56,7 +57,7 @@ riskCalcButton.onclick = () => {
     reqCSV.send(null);
     reqCSV.onload = function () {
       convertCSVtoArray(reqCSV.responseText);
-      reqCSV = reqCSV.responseText;
+      demCSV = reqCSV.responseText;
     };
   };
 
@@ -72,9 +73,9 @@ riskCalcButton.onclick = () => {
     // alert(result[1][2]); // 300yen
   };
 
-  outputElement.innerHTML = result[1];
+  outputElement.innerHTML = demCSV;
 
-  console.log(reqCSV);
+  console.log(demCSV);
 
 
   getCSV();
