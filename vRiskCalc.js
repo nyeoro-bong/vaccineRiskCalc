@@ -52,7 +52,7 @@ riskCalcButton.onclick = () => {
 
   function getCSV() {
     let reqCSV = new XMLHttpRequest();
-    reqCSV.open('GET', 'demography.csv', true);
+    reqCSV.open('GET', 'demography.csv', false);
     reqCSV.send(null);
     reqCSV.onload = function () {
       convertCSVtoArray(reqCSV.responseText);
@@ -69,10 +69,10 @@ riskCalcButton.onclick = () => {
       result[i] = tmp[i].split(',');
     };
 
-    alert(result[1][2]); // 300yen
+    // alert(result[1][2]); // 300yen
   };
 
-  outputElement.innerHTML = reqCSV;
+  outputElement.innerHTML = result[1];
 
   console.log(reqCSV);
 
