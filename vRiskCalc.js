@@ -37,7 +37,7 @@ riskCalcButton.onclick = () => {
 
   // const outputElement = document.getElementById('output_csv');
 
-  // function getCsvData(dataPath) {
+  // function getdata(dataPath) {
   //  const request = new XMLHttpRequest();
   //  request.addEventListener('load', (event) => {
   //   const response = event.target.responseText;
@@ -47,35 +47,31 @@ riskCalcButton.onclick = () => {
   //  request.send();
   // }
 
-  // getCsvData('./example.csv');    
+  // getdata('./example.csv');    
 
   let outputElement = document.getElementById('output_csv');
 
   function getCSV() {
-    let reqCSV = new XMLHttpRequest();
-    reqCSV.open('GET', 'demography.csv', false);
-    reqCSV.send(null);
-    reqCSV.onload = function () {
-      convertCSVtoArray(reqCSV.responseText);
-      // demCSV = reqCSV.responseText;
-    };
-  };
-
-  function convertCSVtoArray(str) { // 読み込んだCSVデータが文字列として渡される
-    var result = []; // 最終的な二次元配列を入れるための配列
-    var tmp = str.split("\n"); // 改行を区切り文字として行を要素とした配列を生成
+    let csvData = [];
+    let data = new XMLHttpRequest();
+    data.open('GET', 'demography.csv', false);
+    data.send(null);
+ 
+    let lines = data.responseText.split("\n"); // 改行を区切り文字として行を要素とした配列を生成
 
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
-    for (var i = 0; i < tmp.length; ++i) {
-      result[i] = tmp[i].split(',');
+    for (let i = 0; i < lines.length; ++i) {
+      csvData[i] = lines[i].split(',');
     };
-    return result;
+    return csvData;
     // alert(result[1][2]); // 300yen
   };
 
-  outputElement.innerHTML = result[1][2];
+  outputElement.innerHTML = csvData;
 
-  console.log(result[3]);
+  console.log(csvData[0]);
+  console.log(csvData[1]);
+  console.log(csvData[2]);
   // console.log(demCSV);
 
 
