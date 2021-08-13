@@ -66,7 +66,7 @@ riskCalcButton.onclick = () => {
     // alert(result[1][2]); // 300yen
   };
 
-  outputElement.innerHTML = csvData[0][1][2];
+  outputElement.innerHTML = csvData[0][1];
 
   console.log(csvData[0]);
   console.log(csvData[1]);
@@ -135,4 +135,4 @@ riskCalcButton.onclick = () => {
   //     let webhookUrl = "https://hooks.slack.com/services/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";
   //     UrlFetchApp.fetch(webhookUrl, options);
   //     }
-}
+};
