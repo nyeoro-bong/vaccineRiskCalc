@@ -60,17 +60,14 @@ riskCalcButton.onclick = () => {
 
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < lines.length; ++i) {
-      let cells = lines[i].split(',');
-      if ( cells.length != 1){
-        csvData.push(cells);
-      }
+      csvData[i] = lines[i].split(',');
     }
 
     return csvData;
     // alert(result[1][2]); // 300yen
   }
 
-  outputElement.innerHTML = csvData[1][2];
+  outputElement.innerHTML = lines;
 
   console.log(csvData[0]);
   console.log(csvData[1]);
@@ -139,4 +136,4 @@ riskCalcButton.onclick = () => {
   //     let webhookUrl = "https://hooks.slack.com/services/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";
   //     UrlFetchApp.fetch(webhookUrl, options);
   //     }
-}
+};
