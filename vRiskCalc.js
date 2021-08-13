@@ -52,11 +52,11 @@ riskCalcButton.onclick = () => {
 
   function getCSV() {
     let csvData = [];
-    let data = new XMLHttpRequest();
-    data.open('GET', 'demography.csv', false);
-    data.send(null);
+    let dataD = new XMLHttpRequest();
+    dataD.open('GET', 'demography.csv', true);
+    dataD.send(null);
  
-    let lines = data.responseText.split("\n"); // 改行を区切り文字として行を要素とした配列を生成
+    let lines = dataD.responseText.split("\n"); // 改行を区切り文字として行を要素とした配列を生成
 
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < lines.length; ++i) {
@@ -70,7 +70,7 @@ riskCalcButton.onclick = () => {
     // alert(result[1][2]); // 300yen
   }
 
-  outputElement.innerHTML = csvData[1];
+  outputElement.innerHTML = csvData[1][2];
 
   console.log(csvData[0]);
   console.log(csvData[1]);
