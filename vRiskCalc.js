@@ -66,7 +66,7 @@ riskCalcButton.onclick = () => {
     // alert(result[1][2]); // 300yen
   };
 
-  outputElement.innerHTML = csvData;
+  outputElement.innerHTML = csvData[0][1][2];
 
   console.log(csvData[0]);
   console.log(csvData[1]);
