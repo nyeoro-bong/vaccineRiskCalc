@@ -2,12 +2,11 @@ let userNameImput = document.getElementById(`userName`);
 let userAgeImput = document.getElementById(`userAge`);
 let userPrefImput = document.getElementById(`userPref`);
 let userVacImput = document.getElementById(`userVac`);
-let riskCalcButton = document.getElementById('riskCalc');
-let resultDivided = document.getElementById('result-area');
-let tweetDivided = document.getElementById('tweet-area');
-let outputElement = document.getElementById('output_csv');
+let riskCalcButton = document.getElementById(`riskCalc`);
+let resultDivided = document.getElementById(`result-area`);
+let tweetDivided = document.getElementById(`tweet-area`);
+let outputElement = document.getElementById(`output-area`);
 let message = 0;
-let demCSV = 0;
 
 riskCalcButton.onclick = () => {
   let uName = userNameImput.value;
@@ -21,15 +20,6 @@ riskCalcButton.onclick = () => {
   console.log(`年代は ${uAge} です`);
   console.log(`地域は ${uPref} です`);
   console.log(`ワクチン種は ${uVac} です`);
-
-
-
-  // function doPost(e) {
-  //   // Slack Event Subscription 認証用のレスポンス
-  //   let params = JSON.parse(e.postData.getDataAsString());
-  //     if (params.type == "url_verification") {
-  //     return ContentService.createTextOutput(params.challenge);
-  //    }
 
 
   // function getdata(dataPath) {
@@ -61,6 +51,7 @@ riskCalcButton.onclick = () => {
     // alert(result[1][2]); // 300yen
     let ageGroup = csvData[csvData.length-1][3]; //summaryから最新日付の累計陽性者数を所得
     outputElement.innerHTML = ageGroup;
+    console.log(csvData);
 
 
   }
