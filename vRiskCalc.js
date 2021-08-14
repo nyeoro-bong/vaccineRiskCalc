@@ -31,11 +31,6 @@ riskCalcButton.onclick = () => {
   //     return ContentService.createTextOutput(params.challenge);
   //    }
 
-  // let texts = params.event.text.split(" ");
-  // if (texts[0] == "covid19") {
-  //   // 感染状況データを取得
-
-  // const outputElement = document.getElementById('output_csv');
 
   // function getdata(dataPath) {
   //  const request = new XMLHttpRequest();
@@ -53,19 +48,19 @@ riskCalcButton.onclick = () => {
   function getCSV() {
     let csvData = [];
     let dataD = new XMLHttpRequest();
-    dataD.open('GET', 'demography.csv', true);
+    dataD.open('GET', './demography.csv', true);
     dataD.send(null);
  
     let lines = dataD.responseText.split("\n"); // 改行を区切り文字として行を要素とした配列を生成
-    outputElement.innerHTML = lines;
 
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < lines.length; ++i) {
       csvData[i] = lines[i].split(',');
     }
 
-    return csvData;
     // alert(result[1][2]); // 300yen
+    outputElement.innerHTML = csvData;
+
   }
 
   // outputElement.innerHTML = lines;
