@@ -53,8 +53,8 @@ riskCalcButton.onclick = () => {
     }
 
     // alert(result[1][2]); // 300yen
-    let ageGroup = csvData[csvData.length-1][3]; //summaryから最新日付の累計陽性者数を所得
-    outputElement.innerHTML = ageGroup;
+    // let ageGroup = csvData[csvData.length-1][3]; //summaryから最新日付の累計陽性者数を所得
+    // outputElement.innerHTML = ageGroup;
     tweetDivided.innerHTML = csvData;
     console.log(csvData);
 
