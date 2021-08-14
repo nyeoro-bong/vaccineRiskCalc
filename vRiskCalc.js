@@ -39,13 +39,13 @@ riskCalcButton.onclick = () => {
     let csvData = [];
     let dataD = new XMLHttpRequest();
     dataD.addEventListener('load', (dataD) => { // ロードさせ実行
-      const lines = dataD.target.responseText; // 受け取ったテキストを返す)
+      let lines = dataD.target.responseText; // 受け取ったテキストを返す)
+      lines = lines.split('\n');
     });
     dataD.open('GET', './demography.csv', true);
     dataD.send(null);
  
-    lines = lines.split('\n'); // 改行を区切り文字として行を要素とした配列を生成
-
+  
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < lines.length; i++) {
       csvData[i] = lines[i].split(',');
