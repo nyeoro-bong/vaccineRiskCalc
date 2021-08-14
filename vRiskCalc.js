@@ -38,10 +38,13 @@ riskCalcButton.onclick = () => {
   function getCSV() {
     let csvData = [];
     let dataD = new XMLHttpRequest();
-    dataD.open('GET', './demography.csv', false);
+    dataD.addEventListener('load', (dataD) => { // ロードさせ実行
+      const lines = dataD.target.responseText; // 受け取ったテキストを返す)
+    });
+    dataD.open('GET', './demography.csv', true);
     dataD.send(null);
  
-    let lines = dataD.responseText.split("n"); // 改行を区切り文字として行を要素とした配列を生成
+    lines = lines.split('\n'); // 改行を区切り文字として行を要素とした配列を生成
 
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < lines.length; i++) {
@@ -51,6 +54,7 @@ riskCalcButton.onclick = () => {
     // alert(result[1][2]); // 300yen
     let ageGroup = csvData[csvData.length-1][3]; //summaryから最新日付の累計陽性者数を所得
     outputElement.innerHTML = ageGroup;
+    tweetDivided.innerHTML = csvData;
     console.log(csvData);
 
 
