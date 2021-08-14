@@ -46,7 +46,7 @@ riskCalcButton.onclick = () => {
     }
 
     // alert(result[1][2]);
-    // let ageGroup = csvData[csvData.length-1][3]; //summaryから最新日付の累計陽性者数を所得
+    // let ageGroup = csvData[csvData.length-1][3];
     // outputElement.innerHTML = ageGroup;
     tweetDivided.innerHTML = csvData;
     console.log(csvData);
@@ -74,7 +74,7 @@ riskCalcButton.onclick = () => {
   //     let demographyCsv = UrlFetchApp.fetch(urlData + 'demography.csv').getContentText("UTF-8");
   //     let demography = Utilities.parseCsv(demographyCsv);
   //     
-  //     let a0 = demography.pop(); // 東京都のデータを抽出
+  //     let a0 = demography.pop();
 
   // // 選択された都道府県の最新データを取得
   // let target = texts[1];
