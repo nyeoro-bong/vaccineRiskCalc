@@ -45,14 +45,14 @@ riskCalcButton.onclick = () => {
     dataD.open('GET', './demography.csv', true);
     dataD.send(null);
 
-    let lines = response.split('\n')
+    let lines = response.split('\n');
   
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < lines.length; i++) {
       csvData[i] = lines[i].split(',');
     }
 
-    // alert(result[1][2]); // 300yen
+    // alert(result[1][2]);
     // let ageGroup = csvData[csvData.length-1][3]; //summaryから最新日付の累計陽性者数を所得
     // outputElement.innerHTML = ageGroup;
     tweetDivided.innerHTML = csvData;
