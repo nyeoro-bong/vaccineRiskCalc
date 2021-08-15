@@ -20,6 +20,7 @@ function getCSV() {
     csvData[i] = lines[i].split(',');
   }
 
+  return csvData;
   // alert(result[1][2]);
   // let ageGroup = csvData[csvData.length-1][3];
   // outputElement.innerHTML = ageGroup;
@@ -40,7 +41,7 @@ riskCalcButton.onclick = () => {
   getCSV();
 
   outputElement.innerHTML = csvData[0][4];
-  console.log(csvData[0][4]);
+  console.log(csvData);
 
 
 
@@ -52,7 +53,6 @@ riskCalcButton.onclick = () => {
   //  });
   //  request.open('GET', dataPath, true);
   //  request.send();
-
   // getdata('./example.csv');    
 
 }
