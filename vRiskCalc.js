@@ -19,9 +19,7 @@ function getCSV() {
   for (let i = 0; i < lines.length; i++) {
     csvData[i] = lines[i].split(',');
   }
-
-  return csvData;
-
+  
   // alert(result[1][2]);
   // let ageGroup = csvData[csvData.length-1][3];
   // outputElement.innerHTML = ageGroup;
