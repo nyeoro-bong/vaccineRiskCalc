@@ -20,8 +20,6 @@ function getCSV(){
     csvData[i] = lines[i].split(',');
   }
 
-  return csvData;
-
 }
 
 riskCalcButton.onclick = () => {
