@@ -7,17 +7,21 @@ let resultDivided = document.getElementById(`result-area`);
 let tweetDivided = document.getElementById(`tweet-area`);
 let outputElement = document.getElementById(`output-area`);
 
-
 function getCSV(){
   let csvData = new Array();
   let dataD = new XMLHttpRequest();
+  let lines;
+  dataD.addEventListener('load', (event) => { // ロードさせ実行
+    lines = event.responseText.split('\n'); // 受け取ったテキストを返す
+    outputElement.innerHTML = lines;
+  });
   dataD.open('GET', './demography.csv', true);
   dataD.send(null);
   
-  let lines = dataD.responseText.split('¥n')  // 受け取ったテキストを返す)
+   // 受け取ったテキストを返す)
 
   // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
-  for (let i = 0; i < lines.length; ++i) {
+  for (let i = 0; i < lines.length ; ++i) {
     csvData[i] = lines[i].split(',');
   }
 
