@@ -8,6 +8,22 @@ let tweetDivided = document.getElementById(`tweet-area`);
 let outputElement = document.getElementById(`output-area`);
 
 
+function getCSV(){
+  let csvData = new Array();
+  let dataD = new XMLHttpRequest();
+  dataD.open('GET', './demography.csv', true);
+  dataD.send(null);
+  
+  let lines = dataD.responseText.split('\n'); // 受け取ったテキストを返す)
+
+  // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
+  for (let i = 0; i < lines.length; ++i) {
+    csvData[i] = lines[i].split(',');
+  }
+
+  return csvData;
+}
+
 riskCalcButton.onclick = () => {
   let uName = userNameImput.value;
   let uAge = userAgeImput.value;
@@ -19,30 +35,10 @@ riskCalcButton.onclick = () => {
   console.log(`地域は ${uPref} です`);
   console.log(`ワクチン種は ${uVac} です`);
 
-  function getCSV() {
-    let csvData = new Array();
-    let dataD = new XMLHttpRequest();
-    dataD.open('GET', './demography.csv', true);
-    dataD.send(null);
-    
-    let lines = dataD.responseText.split('\n'); // 受け取ったテキストを返す)
-  
-    // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
-    for (let i = 0; i < lines.length; i++) {
-      csvData[i] = lines[i].split(',');
-    }
-  
-    return csvData;
-    // alert(result[1][2]);
-    // let ageGroup = csvData[csvData.length-1][3];
-    // outputElement.innerHTML = ageGroup;
-  }
-  
-
   getCSV();
 
   outputElement.innerHTML = csvData[0][4];
-  console.log(csvData);
+  console.log(csvData[0][4]);
 
 
 
@@ -59,7 +55,6 @@ riskCalcButton.onclick = () => {
 }
 
 
-  
   // outputElement.innerHTML = lines;
 
 
