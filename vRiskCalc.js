@@ -21,7 +21,9 @@ function getCSV(){
     csvData[i] = lines[i].split(',');
   }
 
-  return csvData;
+  outputElement.innerHTML = csvData;
+  console.log(csvData);
+
 }
 
 riskCalcButton.onclick = () => {
@@ -37,8 +39,9 @@ riskCalcButton.onclick = () => {
 
   getCSV();
 
-  outputElement.innerHTML = csvData[0][4];
-  console.log(csvData[0][4]);
+
+  // outputElement.innerHTML = csvData[0][4];
+  // console.log(csvData[0][4]);
 
 
 
