@@ -48,8 +48,8 @@ riskCalcButton.onclick = () => {
     // alert(result[1][2]);
     // let ageGroup = csvData[csvData.length-1][3];
     // outputElement.innerHTML = ageGroup;
-    tweetDivided.innerHTML = csvData;
-    console.log(csvData);
+    outputElement.innerHTML = csvData[0][4];
+    console.log(csvData[0][4]);
 
 
   }
@@ -63,9 +63,6 @@ riskCalcButton.onclick = () => {
 
 
   getCSV();
-
-
-
 
 
   //     let urlData = "https://toyokeizai.net/sp/visual/tko/covid19/csv/";
