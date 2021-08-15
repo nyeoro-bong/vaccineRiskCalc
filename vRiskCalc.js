@@ -33,7 +33,7 @@ riskCalcButton.onclick = () => {
 
 
   function getCSV() {
-    let csvData = [];
+    let csvData = new Array();
     let dataD = new XMLHttpRequest();
     dataD.open('GET', './demography.csv', true);
     dataD.send(null);
