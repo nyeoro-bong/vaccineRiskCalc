@@ -40,11 +40,6 @@ riskCalcButton.onclick = () => {
   getCSV();
 
 
-  // outputElement.innerHTML = csvData[0][4];
-  // console.log(csvData[0][4]);
-
-
-
   // function getdata(dataPath) {
   //  const request = new XMLHttpRequest();
   //  request.addEventListener('load', (event) => {
