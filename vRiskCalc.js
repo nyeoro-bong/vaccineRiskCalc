@@ -21,9 +21,6 @@ function getCSV(){
     csvData[i] = lines[i].split(',');
   }
 
-  outputElement.innerHTML = csvData;
-  console.log(csvData);
-
 }
 
 riskCalcButton.onclick = () => {
@@ -38,5 +35,8 @@ riskCalcButton.onclick = () => {
   console.log(`ワクチン種は ${uVac} です`);
 
   getCSV();
+
+  console.log(csvData);
+  outputElement.innerHTML = csvData;
 
 }
