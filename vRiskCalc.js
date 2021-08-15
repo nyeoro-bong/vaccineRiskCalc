@@ -14,14 +14,12 @@ function getCSV(){
   dataD.open('GET', './demography.csv', true);
   dataD.send(null);
   
-  let lines = dataD.responseText.split('n'); // 受け取ったテキストを返す)
+  let lines = dataD.responseText.split('¥n')  // 受け取ったテキストを返す)
 
   // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
   for (let i = 0; i < lines.length; ++i) {
     csvData[i] = lines[i].split(',');
   }
-
-  return csvData;
 
 }
 
