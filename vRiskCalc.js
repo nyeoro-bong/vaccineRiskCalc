@@ -8,22 +8,21 @@ let tweetDivided = document.getElementById(`tweet-area`);
 let outputElement = document.getElementById(`output-area`);
 
 function getCSV(){
-  let csvData = new Array();
+  let csvData = [];
+  let lines = [];
   let dataD = new XMLHttpRequest();
   dataD.open('GET', './demography.csv', true);
   dataD.send(null);
 
-  let response = dataD.responseText.toString;
-  let lines = response.split('\n'); // 受け取ったテキストを返す
-  outputElement.innerHTML = response;
+  lines = dataD.responseText.split('\n');
 
   // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
   for (let i = 0; i < lines.length ; ++i) {
     csvData[i] = lines[i].split(',');
   }
-  return csvData;
 }
 
+getCSV();
 
 riskCalcButton.onclick = () => {
   let uName = userNameImput.value;
@@ -36,10 +35,7 @@ riskCalcButton.onclick = () => {
   console.log(`地域は ${uPref} です`);
   console.log(`ワクチン種は ${uVac} です`);
 
-  
-  getCSV();
-
-  console.log(csvData);
   outputElement.innerHTML = csvData;
+  console.log(csvData);
 
 }
