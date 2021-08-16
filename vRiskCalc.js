@@ -11,7 +11,7 @@ function getCSV(){
   let csvData = [];
   let lines = [];
   let dataD = new XMLHttpRequest();
-  dataD.open('GET', 'demography.csv', false);
+  dataD.open('GET', 'demography.csv', true);
   dataD.send();
   
   var LF = String.fromCharCode(10); 
