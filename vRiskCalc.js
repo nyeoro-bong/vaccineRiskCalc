@@ -11,7 +11,7 @@ getCSV = () => {
   let csvData = [];
   let lines = [];
   let dataD = new XMLHttpRequest();
-  dataD.open('GET', 'demography.csv', true);
+  dataD.open('GET','demography.csv',true);
   dataD.send();
   
   lines = dataD.responseText.toString.split('\n');
