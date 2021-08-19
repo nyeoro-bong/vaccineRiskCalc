@@ -7,7 +7,7 @@ let resultDivided = document.getElementById(`result-area`);
 let tweetDivided = document.getElementById(`tweet-area`);
 let outputElement = document.getElementById(`output-area`);
 
-function getCSV(){
+getCSV = () => {
   let csvData = [];
   let lines = [];
   let dataD = new XMLHttpRequest();
@@ -20,7 +20,6 @@ function getCSV(){
   for (let i = 0; i < lines.length ; ++i) {
     csvData[i] = lines[i].split(',');
   }
-  return csvData;
 }
 
 getCSV();
@@ -31,11 +30,15 @@ riskCalcButton.onclick = () => {
   let uPref = userPrefImput.value;
   let uVac = userVacImput.value;
 
+  let comment = 
+  `日現在の国内${uAge}のCovid-19感染致死率は％です。<br>
+  致死リスクは昨年度の交通事故死亡率と比べて　です。<br>
+  `
+
   console.log(`ユーザー名は ${uName} さんです`);
   console.log(`年代は ${uAge} です`);
   console.log(`地域は ${uPref} です`);
   console.log(`ワクチン種は ${uVac} です`);
-
   console.log(csvData);
 
 }
