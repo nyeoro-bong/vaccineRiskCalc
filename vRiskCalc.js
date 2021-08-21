@@ -15,7 +15,7 @@ getCSV = () => {
     const response = event.target.responseText;
     outputElement.innerHTML = response;
   });
-  dataD.open('GET','~¥workspace¥vaccineRiskCalc¥demography.csv',true);
+  dataD.open('GET','demography.csv',true);
   dataD.send();
   
   lines = dataD.responseText.toString.split('n');
