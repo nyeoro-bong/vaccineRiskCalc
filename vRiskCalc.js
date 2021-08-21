@@ -18,7 +18,7 @@ getCSV = () => {
   dataD.open('GET','demography.csv',true);
   dataD.send();
   
-  lines = dataD.responseText.toString.split('n');
+  lines = respnse.toString.split('n');
 
   // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
   for (let i = 0; i < lines.length ; ++i) {
