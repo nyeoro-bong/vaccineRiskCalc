@@ -14,11 +14,17 @@ getCSV = () => {
   dataD.addEventListener('load', (event) => {
     const response = event.target.responseText;
     outputElement.innerHTML = response;
+    lines = response.split('n');
+    
+    // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
+    for (let i = 0; i < lines.length ; ++i) {
+      csvData[i] = lines[i].split(',');
+    }
   });
   dataD.open('GET','demography.csv',true);
   dataD.send();
   
-  lines = response.toString.split('n');
+  lines = response.split('n');
 
   // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
   for (let i = 0; i < lines.length ; ++i) {
