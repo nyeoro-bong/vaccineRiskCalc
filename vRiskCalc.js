@@ -11,7 +11,11 @@ getCSV = () => {
   let csvData = [];
   let lines = [];
   let dataD = new XMLHttpRequest();
-  dataD.open('GET','./demography.csv',true);
+  dataD.addEventListener('load', (event) => {
+    const response = event.target.responseText;
+    outputElement.innerHTML = response;
+  });
+  dataD.open('GET','~¥workspace¥vaccineRiskCalc¥demography.csv',true);
   dataD.send();
   
   lines = dataD.responseText.toString.split('n');
