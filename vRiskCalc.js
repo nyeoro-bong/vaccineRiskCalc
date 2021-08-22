@@ -29,7 +29,6 @@ getCSV = () => {
   let csvDataP = new XMLHttpRequest();
   csvDataP.addEventListener('load', (event) => {
     const responseP = event.target.responseText;
-    resultDivided.innerHTML = responseP;
     linesP = responseP.split('n');
     
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
