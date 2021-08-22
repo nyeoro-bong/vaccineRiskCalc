@@ -1,11 +1,11 @@
 let userNameImput = document.getElementById(`userName`);
 let userAgeImput = document.getElementById(`userAge`);
-let userPrefImput = document.getElementById(`userPref`);
 let userVacImput = document.getElementById(`userVac`);
 let riskCalcButton = document.getElementById(`riskCalc`);
+let outputDivided = document.getElementById(`output-area`);
 let resultDivided = document.getElementById(`result-area`);
+let infoDivided = document.getElementById(`info-area`);
 let tweetDivided = document.getElementById(`tweet-area`);
-let outputElement = document.getElementById(`output-area`);
 
 getCSV = () => {
   let datasD = [];
@@ -13,7 +13,7 @@ getCSV = () => {
   let csvData = new XMLHttpRequest();
   csvData.addEventListener('load', (event) => {
     const response = event.target.responseText;
-    outputElement.innerHTML = response;
+    outputDivided.innerHTML = response;
     lines = response.split('\n');
     
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
@@ -24,16 +24,16 @@ getCSV = () => {
   csvData.open('GET','demography.csv',true);
   csvData.send();
 
-  let datasP = [];
-  let linesP = [];
-  let csvDataP = new XMLHttpRequest();
-  csvDataP.addEventListener('load', (event) => {
-    const responseP = event.target.responseText;
-    linesP = responseP.split('\n');
+  let datasR = [];
+  let linesR = [];
+  let csvDataR = new XMLHttpRequest();
+  csvDataR.addEventListener('load', (event) => {
+    const responseR = event.target.responseText;
+    linesR = responseR.split('\n');
     
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
-    for (let i = 0; i < linesP.length ; ++i) {
-      datasP[i] = linesP[i].split(',');
+    for (let i = 0; i < linesR.length ; ++i) {
+      datasR[i] = linesR[i].split(',');
     }
   });
   csvDataP.open('GET','prefectures.csv',true);
@@ -41,9 +41,8 @@ getCSV = () => {
   
 }
 
-riskCalcP = () => {
-  var datas = datasP.filter(i => i[4] == uPref ); // 指定した自治体のデータを抽出
-  var latest = datas.pop(); // prefecturesから最新データ列latestを取得
+riskCalcR = () => {
+  var latest = datasR.pop(); // prefecturesから最新データ列latestを取得
   var date = latest[0] + '/' + latest[1] + '/' + latest[2]; // latestから最新日付を取得
   var eRNumber = latest[11]; // latestからR0　実行再生算数を取得
   var eRNComment = 0; // 実行再生算数コメント用に変数　eRNComment　を作成して初期化
@@ -57,38 +56,53 @@ riskCalcP = () => {
     eRNComment = '急速な増加傾向';
   }
 
-  var outputP = `${uPref}の実行再生算数R0は${eRNumber}で、${uName}の身近の感染リスクは${eRNComment}です。(${date}現在)`;
+  var outputR = `実行再生算数R0は${eRNumber}で、感染リスクは${eRNComment}です。(${date}現在)`;
 
-  return outputP;
+  return outputR;
 }
 
 riscCalcD = () => {
   // uAgeで指定された年齢から同世代感染状況の最新データを取得
-  var targetD = uAge;
-  targetD = parseInt(targetD);
   var ageG;
-  if (targetD < 10) {
-      ageG = demography[1][3];
-  } else　if (10<= targetD && targetD <20){
+  switch (uAge) {
+    case "10th":
       ageG = demography[2][3];
-  } else if (20<= targetD && targetD <30){
+      console.log(`年代は ${uAge} です`);
+      break;
+    case "20th":
       ageG = demography[3][3];
-  } else if (30<= targetD && targetD <40){
+      console.log(`年代は ${uAge} です`);
+      break;
+    case "30th":
       ageG = demography[4][3]; 
-  } else if (40<= targetD && targetD <50){
+      console.log(`年代は ${uAge} です`);
+      break;
+    case "40th":
       ageG = demography[5][3]; 
-  } else if (50<= targetD && targetD <60){
+      console.log(`年代は ${uAge} です`);
+      break;
+    case "50th":
       ageG = demography[6][3]; 
-  } else if (60<= targetD && targetD <70){
-      ageG = demography[7][3]; 
-  } else if (70<= targetD && targetD <80){
+      console.log(`年代は ${uAge} です`);
+      break;
+    case "60th":
+      ageG = demography[7][3];
+      console.log(`年代は ${uAge} です`);
+      break;
+    case "70th":
       ageG = demography[8][3]; 
-  } else if (80<= targetD){
-      ageG = demography[9][3]; 
-  } else {
-      ageG = demography[10][3]; 
+      console.log(`年代は ${uAge} です`);
+      break;
+    case "80th":
+      ageG = demography[9][3];
+      console.log(`年代は ${uAge} です`);
+      break;
+    case "0th":
+      ageG = demography[1][3];
+      console.log(`年代は ${uAge} です`);
+      break;
   }
-  
+    
   var datasD = demography.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
   var dateD = datasD[datasD.length-1][0] + '/' + datasD[datasD.length-1][1] + '/' + datasD[datasD.length-1][2]; // demographyから最新日付を取得
   var ageGroup = datasD[datasD.length-1][3]; //demographyから世代グループ名を取得
@@ -162,7 +176,6 @@ riskCalcButton.onclick = () => {
   resultDivided.innerHTML = comment;
 
   console.log(`ユーザー名は ${uName} さんです`);
-  console.log(`年代は ${uAge} です`);
   console.log(`地域は ${uPref} です`);
   console.log(`ワクチン種は ${uVac} です`);
 

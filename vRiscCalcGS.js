@@ -23,28 +23,39 @@ function doPost(e) {
 
     // texts[２]で指定された年齢から同世代感染状況の最新データを取得
     var targetD = texts[2];
-    targetD = parseInt(targetD);
+    targetD = Math.floor(targetD / 10);
     var ageG;
-    if (targetD < 10) {
-      ageG = demography[1][3];
-    } else if (10 <= targetD && targetD < 20) {
-      ageG = demography[2][3];
-    } else if (20 <= targetD && targetD < 30) {
-      ageG = demography[3][3];
-    } else if (30 <= targetD && targetD < 40) {
-      ageG = demography[4][3];
-    } else if (40 <= targetD && targetD < 50) {
-      ageG = demography[5][3];
-    } else if (50 <= targetD && targetD < 60) {
-      ageG = demography[6][3];
-    } else if (60 <= targetD && targetD < 70) {
-      ageG = demography[7][3];
-    } else if (70 <= targetD && targetD < 80) {
-      ageG = demography[8][3];
-    } else if (80 <= targetD) {
-      ageG = demography[9][3];
-    } else {
-      ageG = demography[10][3];
+    switch (targetD) {
+      case 0:
+        ageG = demography[1][3];
+        break;
+      case 1:
+        ageG = demography[2][3];
+        break;
+      case 2:
+        ageG = demography[3][3];
+        break;
+      case 3:
+        ageG = demography[4][3];
+        break;
+      case 4:
+        ageG = demography[5][3];
+        break;
+      case 5:
+        ageG = demography[6][3];
+        break;
+      case 6:
+        ageG = demography[7][3];
+        break;
+      case 7:
+        ageG = demography[8][3];
+        break;
+      case 8:
+        ageG = demography[9][3];
+        break;
+      default:
+        ageG = demography[10][3];
+        break;
     }
 
     var datasD = demography.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
@@ -53,11 +64,11 @@ function doPost(e) {
     var uVac;
     if (targetV === 'f') {
       uVac =
-        `ファイザーはmRNA型ワクチンで発症予防効果は約95%です。痛みや発熱等の副反応が確認されています。重篤反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
+        `ファイザーはmRNA型ワクチンで発症予防効果率は約95%です。痛みや発熱等の副反応が確認されています。重篤副反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
     } else if (targetV === 'm') {
-      uVac = `モデルナはmRNA型ワクチンで発症予防効果は約94%です。副反応が確認されておりファイザーに比べ痛みや発熱等症状の発生率が(5〜20pt)高めです。重篤反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
+      uVac = `モデルナはmRNA型ワクチンで発症予防効果率は約94%です。副反応が確認されておりファイザーに比べて痛みや発熱等症状の発生率が(5〜20pt)高めです。重篤副反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
     } else if (targetV === 'a') {
-      uVac = `アストラゼネカはウイルスベクター型ワクチンで発症予防効果は約70%です。副反応および重篤反応発生率に関するデータはありません。`;
+      uVac = `アストラゼネカはウイルスベクター型ワクチンで発症予防効果率は約70%です。副反応および重篤副反応発生率に関する公開データはありません。(厚労省8/4報告資料より)`;
     } else {
       uVac = ``
     }
@@ -95,14 +106,14 @@ function doPost(e) {
 
     var riskFlag = 0;
     if (fatality < TAfatality2020) {
-      riskFlag = '低い水準です';
+      riskFlag = '低水準です';
     } else if (fatality > TAfatality2020) {
-      riskFlag = '高水準のリスクです';
+      riskFlag = '高水準のリスクです。ワクチン優先摂取が有効です。';
     } else {
-      riskFlag = '同水準です';
+      riskFlag = '同水準です。ワクチン摂取時期を検討するタイミングです';
     }
 
-    var message = `【${targetP}在住${texts[2]}歳のcovid-19感染致死リスク状況】  【死亡リスク】${ageGroup}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計:${death}), ★国内${ageGroup}のCovid-19感染致死率は${fatality + '%'}です。昨年度交通事故死亡率:${TAfatality2020 + '%'}と比べて${riskFlag}。（${dateD}集計） 【流行状況】${targetP}の実効再生産数R0は${eRNumber}で★身近の感染リスクは${eRNComment}です。(${date}現在) 【ワクチン情報】${uVac}`;
+    var message = `【${targetP}在住${texts[2]}歳のcovid-19感染致死リスク状況】  【死亡リスク】${ageGroup}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計:${death}), ★国内${ageGroup}のCovid-19感染致死率は${fatality + '%'}です。昨年の交通事故死亡率:${TAfatality2020 + '%'}と比べて${riskFlag}。（${dateD}集計） 【流行状況】${targetP}の${date}の実効再生産数R0は${eRNumber}で★身近の感染リスクは${eRNComment}です。 【ワクチン公開情報】${uVac}`;
 
     // Slack に送信
     var options = {
@@ -110,6 +121,7 @@ function doPost(e) {
       "headers": { "Content-type": "application/json" },
       "payload": '{"text":"' + message + '"}',
     };
+
     var webhookUrl = "https://hooks.slack.com/services/";
     UrlFetchApp.fetch(webhookUrl, options);
   }
