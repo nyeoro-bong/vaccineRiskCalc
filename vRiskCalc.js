@@ -44,7 +44,7 @@ getCSV = () => {
 riskCalcR = () => {
   var latest = datasR.pop(); // prefecturesから最新データ列latestを取得
   var date = latest[0] + '/' + latest[1] + '/' + latest[2]; // latestから最新日付を取得
-  var eRNumber = latest[11]; // latestからR0　実行再生算数を取得
+  var eRNumber = latest[3]; // latestからR0　実行再生算数を取得
   var eRNComment = 0; // 実行再生算数コメント用に変数　eRNComment　を作成して初期化
   if (eRNumber < 1){
     eRNComment = '減少傾向';
@@ -157,10 +157,8 @@ riskCalcButton.onclick = () => {
   let uPref = userPrefImput.value;
   let outputV = userVacImput.value;
 
-  riskCalcP();
   riscCalcD();
   riskCalcV();
-
 
   let comment = `
   【${uPref}在住${uAge}歳${uName}のcovid-19感染致死リスク状況】<br>
@@ -170,7 +168,6 @@ riskCalcButton.onclick = () => {
 
   <a href="https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1">警察庁交通局交通企画課「令和２年中の交通事故死者について」</a><br>
   <a href="https://www.google.com/search?q=${uVac}+%E5%89%AF%E5%8F%8D%E5%BF%9C&rlz=1C5CHFA_enJP936JP936&sxsrf=ALeKk02wzlbwQmI0KOTT9kWPAHRr5Gx5Cg%3A1629618378179&ei=ygAiYZG8CqOFr7wPk-2omAo&oq=uVac+%E5%89%AF%E5%8F%8D%E5%BF%9C&gs_lcp=Cgdnd3Mtd2l6EAM6CggAEIAEELADEAQ6CwgAELEDEIMBELADOgkIABCwAxAEEAM6EAgAEIAEELEDELEDELADEAQ6DQgAEIAEELEDELEDEAQ6BwgAEIAEEAQ6CAgAELEDEIMBOgYIABAEEAM6BAgjECc6BAgAEEM6EwgAEIAEELEDEIMBELEDEIMBEAQ6EAgAELEDEIMBELEDEIMBEEM6CggAEIAEELEDEAQ6BwgjEOoCECc6BggjECcQEzoNCAAQgAQQsQMQgwEQBDoFCAAQgAQ6CAgAEIAEELEDOgQIABAeOgkIABCABBAEEAo6BAgAEBM6BggAEB4QEzoFCCEQoAE6BQgAEM0COgYIIRAKECpKBAhBGAFQi7-NAViIsY4BYO61jgFoA3AAeACAAYwCiAHBFJIBBzEzLjExLjGYAQCgAQGwAQrIAQjAAQE&sclient=gws-wiz&ved=0ahUKEwiRybPEkcTyAhWjwosBHZM2CqMQ4dUDCA4&uact=5">google”ワクチン名” + ”副反応”の検索結果</a>
-
   `;
 
   resultDivided.innerHTML = comment;
