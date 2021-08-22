@@ -49,9 +49,9 @@ riskCalcP = () => {
   var eRNComment = 0; // 実行再生算数コメント用に変数　eRNComment　を作成して初期化
   if (eRNumber < 1){
     eRNComment = '減少傾向';
-  } else if (1 <= eRNumber && eRNumber < 1.1){
+  }  else if  (1 <= eRNumber && eRNumber < 1.1){
     eRNComment = 'やや増加傾向';
-  } else if (1.1 <= eRNumber && eRNumber < 1.3){
+  }  else if  (1.1 <= eRNumber && eRNumber < 1.3){
     eRNComment = '増加傾向';
   } else {
     eRNComment = '急速な増加傾向';
@@ -69,23 +69,23 @@ riscCalcD = () => {
   var ageG;
   if (targetD < 10) {
       ageG = demography[1][3];
-  }else　if(10<= targetD && targetD <20){
+  } else　if (10<= targetD && targetD <20){
       ageG = demography[2][3];
-  }else if(20<= targetD && targetD <30){
+  } else if (20<= targetD && targetD <30){
       ageG = demography[3][3];
-  }else if(30<= targetD && targetD <40){
+  } else if (30<= targetD && targetD <40){
       ageG = demography[4][3]; 
-  }else if(40<= targetD && targetD <50){
+  } else if (40<= targetD && targetD <50){
       ageG = demography[5][3]; 
-  }else if(50<= targetD && targetD <60){
+  } else if (50<= targetD && targetD <60){
       ageG = demography[6][3]; 
-  }else if(60<= targetD && targetD <70){
+  } else if (60<= targetD && targetD <70){
       ageG = demography[7][3]; 
-  }else if(70<= targetD && targetD <80){
+  } else if (70<= targetD && targetD <80){
       ageG = demography[8][3]; 
-  }else if(80<= targetD){
+  } else if (80<= targetD){
       ageG = demography[9][3]; 
-  }else{
+  } else {
       ageG = demography[10][3]; 
   }
   
@@ -108,11 +108,11 @@ riscCalcD = () => {
   TAfatality2020 = TAfatality2020.toFixed(2); //小数点第2位の数値に成型
   
   var riskFlag =0;
-  if(fatality < TAfatality2020){
+  if (fatality < TAfatality2020){
     riskFlag = '低い水準です';
-  }else if(fatality > TAfatality2020){
+  } else if (fatality > TAfatality2020){
     riskFlag = '高水準のリスクです';
-  }else{
+  } else {
     riskFlag = '同水準です';
   }
 
