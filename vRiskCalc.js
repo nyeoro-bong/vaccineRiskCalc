@@ -36,7 +36,7 @@ getCSV = () => {
       datasR[i] = linesR[i].split(',');
     }
   });
-  csvDataP.open('GET','prefectures.csv',true);
+  csvData.open('GET','prefectures.csv',true);
   csvDataP.send();
   
 }
