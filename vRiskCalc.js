@@ -68,7 +68,7 @@ riskCalcR = () => {
 riscCalcD = () => {
   // uAgeで指定された年齢から同世代感染状況の最新データを取得
   var ageG;
-  switch (uAge) {
+  switch(uAge) {
     case "10th":
       ageG = demography[2][3];
       console.log(`年代は ${uAge} です`);
