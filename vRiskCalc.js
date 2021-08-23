@@ -154,7 +154,6 @@ getCSV();
 riskCalcButton.onclick = () => {
   let uName = userNameImput.value;
   let uAge = userAgeImput.value;
-  let uPref = userPrefImput.value;
   let outputV = userVacImput.value;
 
   riscCalcD();
