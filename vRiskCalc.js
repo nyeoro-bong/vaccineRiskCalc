@@ -36,7 +36,7 @@ getCSV = () => {
       datasR[i] = linesR[i].split(',');
     }
   });
-  csvData.open('GET','eRNumber.csv',true);
+  csvDataR.open('GET','eRNumber.csv',true);
   csvDataR.send();
   
 }
