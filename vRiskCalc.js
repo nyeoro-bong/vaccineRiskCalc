@@ -20,10 +20,13 @@ getCSV = () => {
     for (let i = 0; i < lines.length ; ++i) {
       datasD[i] = lines[i].split(',');
     }
+    return datasD;
   });
   csvData.open('GET','demography.csv',true);
   csvData.send();
+}
 
+getCSVR = () => {
   let datasR = [];
   let linesR = [];
   let csvDataR = new XMLHttpRequest();
@@ -35,6 +38,7 @@ getCSV = () => {
     for (let i = 0; i < linesR.length ; ++i) {
       datasR[i] = linesR[i].split(',');
     }
+    return datasR;
   });
   csvDataR.open('GET','eRNumber.csv',true);
   csvDataR.send();
@@ -150,6 +154,7 @@ riskCalcV = () => {
 }
 
 getCSV();
+getCSVR();
 
 riskCalcButton.onclick = () => {
   let uName = userNameImput.value;
