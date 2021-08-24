@@ -66,55 +66,56 @@ function riskCalcR() {
 }
 
 
+
 function riskCalcD() {
   var ageG;
   var uAge;
   var gen = uAge;
   switch (gen) {
     case "10th":
-      ageG = demography[2][3];
+      ageG = datasD[2][3];
       console.log(`年代は ${ageG} です`);
       break;
     case "20th":
-      ageG = demography[3][3];
+      ageG = datasD[3][3];
       console.log(`年代は ${ageG} です`);
       break;
     case "30th":
-      ageG = demography[4][3]; 
+      ageG = datasD[4][3]; 
       console.log(`年代は ${ageG} です`);
       break;
     case "40th":
-      ageG = demography[5][3]; 
+      ageG = datasD[5][3]; 
       console.log(`年代は ${ageG} です`);
       break;
     case "50th":
-      ageG = demography[6][3]; 
+      ageG = datasD[6][3]; 
       console.log(`年代は ${ageG} です`);
       break;
     case "60th":
-      ageG = demography[7][3];
+      ageG = datasD[7][3];
       console.log(`年代は ${ageG} です`);
       break;
     case "70th":
-      ageG = demography[8][3]; 
+      ageG = datasD[8][3]; 
       console.log(`年代は ${ageG} です`);
       break;
     case "80th":
-      ageG = demography[9][3];
+      ageG = datasD[9][3];
       console.log(`年代は ${ageG} です`);
       break;
     case "0th":
-      ageG = demography[1][3];
+      ageG = datasD[1][3];
       console.log(`年代は ${ageG} です`);
       break;
   }
     
-  var datasD = demography.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
-  var dateD = datasD[datasD.length-1][0] + '/' + datasD[datasD.length-1][1] + '/' + datasD[datasD.length-1][2]; // demographyから最新日付を取得
-  var ageGroup = datasD[datasD.length-1][3]; //demographyから世代グループ名を取得
-  var testedPositive = datasD[datasD.length-1][4]; //demographyから世代陽性者累計を取得
-  var serious = datasD[datasD.length-1][6]; //demographyから同世代重症者数を取得
-  var death = datasD[datasD.length-1][7]; //demographyから同世代死者累計を取得
+  var datasD = datasD.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
+  var dateD = datasD[datasD.length-1][0] + '/' + datasD[datasD.length-1][1] + '/' + datasD[datasD.length-1][2]; // datasDから最新日付を取得
+  var ageGroup = datasD[datasD.length-1][3]; //datasDから世代グループ名を取得
+  var testedPositive = datasD[datasD.length-1][4]; //datasDから世代陽性者累計を取得
+  var serious = datasD[datasD.length-1][6]; //datasDから同世代重症者数を取得
+  var death = datasD[datasD.length-1][7]; //datasDから同世代死者累計を取得
   testedPositive = parseInt(testedPositive);
   serious = parseInt(serious);
   death = parseInt(death);
@@ -136,7 +137,7 @@ function riskCalcD() {
     riskFlag = '同水準です';
   }
 
-  var outputD = `【死亡リスク】${ageGroup}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計:${death}), ★国内${ageGroup}のCovid-19感染致死率は${fatality +'%'}です。昨年度交通事故死亡率:${TAfatality2020 +'%'}と比べて${riskFlag}。（${dateD}集計）`;
+  var outputD = `【死亡リスク】${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計:${death}), ★国内${ageGroup}のCovid-19感染致死率は${fatality +'%'}です。昨年度交通事故死亡率:${TAfatality2020 +'%'}と比べて${riskFlag}。（${dateD}集計）`;
   return outputD;
 }
 
