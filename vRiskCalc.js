@@ -38,10 +38,12 @@ getCSVR = () => {
     for (let i = 0; i < linesR.length ; ++i) {
       datasR[i] = linesR[i].split(',');
     }
-    return datasR;
+
   });
   csvDataR.open('GET','eRNumber.csv',true);
   csvDataR.send();
+  
+  return datasR;
   
 }
 
