@@ -20,10 +20,10 @@ getCSV = () => {
     for (let i = 0; i < lines.length ; ++i) {
       datasD[i] = lines[i].split(',');
     }
-    return datasD;
   });
   csvData.open('GET','demography.csv',true);
   csvData.send();
+  return datasD;
 }
 
 getCSVR = () => {
@@ -42,9 +42,7 @@ getCSVR = () => {
   });
   csvDataR.open('GET','eRNumber.csv',true);
   csvDataR.send();
-  
-  return datasR;
-  
+  return datasR; 
 }
 
 function riskCalcR() {
