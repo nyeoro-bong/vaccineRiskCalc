@@ -66,44 +66,44 @@ riskCalcR = () => {
 }
 
 riscCalcD = () => {
-  // uAgeで指定された年齢から同世代感染状況の最新データを取得
-  var ageG;
-  switch (uAge) {
+  var ageG = 0;
+  var gen = uAge;
+  switch (gen) {
     case "10th":
       ageG = demography[2][3];
-      console.log(`年代は ${uAge} です`);
+      console.log(`年代は ${ageG} です`);
       break;
     case "20th":
       ageG = demography[3][3];
-      console.log(`年代は ${uAge} です`);
+      console.log(`年代は ${ageG} です`);
       break;
     case "30th":
       ageG = demography[4][3]; 
-      console.log(`年代は ${uAge} です`);
+      console.log(`年代は ${ageG} です`);
       break;
     case "40th":
       ageG = demography[5][3]; 
-      console.log(`年代は ${uAge} です`);
+      console.log(`年代は ${ageG} です`);
       break;
     case "50th":
       ageG = demography[6][3]; 
-      console.log(`年代は ${uAge} です`);
+      console.log(`年代は ${ageG} です`);
       break;
     case "60th":
       ageG = demography[7][3];
-      console.log(`年代は ${uAge} です`);
+      console.log(`年代は ${ageG} です`);
       break;
     case "70th":
       ageG = demography[8][3]; 
-      console.log(`年代は ${uAge} です`);
+      console.log(`年代は ${ageG} です`);
       break;
     case "80th":
       ageG = demography[9][3];
-      console.log(`年代は ${uAge} です`);
+      console.log(`年代は ${ageG} です`);
       break;
     case "0th":
       ageG = demography[1][3];
-      console.log(`年代は ${uAge} です`);
+      console.log(`年代は ${ageG} です`);
       break;
   }
     
