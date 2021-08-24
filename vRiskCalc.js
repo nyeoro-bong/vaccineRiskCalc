@@ -66,7 +66,8 @@ riskCalcR = () => {
 }
 
 riscCalcD = () => {
-  var ageG = 0;
+  var ageG;
+  var uAge;
   var gen = uAge;
   switch (gen) {
     case "10th":
