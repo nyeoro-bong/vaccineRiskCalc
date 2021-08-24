@@ -35,8 +35,8 @@ getCSVR = () => {
     linesR = responseR.split('\n');
     
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
-    for (let i = 0; i < linesR.length ; ++i) {
-      datasR[i] = linesR[i].split(',');
+    for (let j = 0; j < linesR.length ; ++j) {
+      datasR[j] = linesR[j].split(',');
     }
 
   });
@@ -110,7 +110,7 @@ function riskCalcD() {
       break;
   }
     
-  var datasD = datasD.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
+  datasD = datasD.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
   var dateD = datasD[datasD.length-1][0] + '/' + datasD[datasD.length-1][1] + '/' + datasD[datasD.length-1][2]; // datasDから最新日付を取得
   var ageGroup = datasD[datasD.length-1][3]; //datasDから世代グループ名を取得
   var testedPositive = datasD[datasD.length-1][4]; //datasDから世代陽性者累計を取得
