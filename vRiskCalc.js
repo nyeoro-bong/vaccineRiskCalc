@@ -159,7 +159,7 @@ getCSVR();
 riskCalcButton.onclick = () => {
   let uName = userNameImput.value;
   let uAge = userAgeImput.value;
-  let outputV = userVacImput.value;
+  let uVac = userVacImput.value;
 
   riscCalcD();
   riskCalcV();
