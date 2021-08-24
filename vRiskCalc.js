@@ -45,7 +45,7 @@ getCSVR = () => {
   
 }
 
-fundtion riskCalcR() {
+function riskCalcR() {
   var latest = datasR.pop(); // prefecturesから最新データ列latestを取得
   var date = latest[0] + '/' + latest[1] + '/' + latest[2]; // latestから最新日付を取得
   var eRNumber = latest[3]; // latestからR0　実行再生算数を取得
@@ -66,7 +66,7 @@ fundtion riskCalcR() {
 }
 
 
-function riscCalcD() {
+function riskCalcD() {
   var ageG;
   var uAge;
   var gen = uAge;
@@ -141,7 +141,7 @@ function riscCalcD() {
 }
 
 
-fundtion riskCalcV() {
+function riskCalcV() {
   var outputV;
   if ( userVac === "phizer"){
     outputV = 
@@ -164,8 +164,8 @@ riskCalcButton.onclick = () => {
   let uAge = userAgeImput.value;
   let uVac = userVacImput.value;
 
-  riscCalcR();
-  riscCalcD();
+  riskCalcR();
+  riskCalcD();
   riskCalcV();
 
   let comment = `
