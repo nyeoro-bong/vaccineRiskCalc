@@ -45,7 +45,7 @@ getCSVR = () => {
   
 }
 
-riskCalcR = () => {
+fundtion riskCalcR() {
   var latest = datasR.pop(); // prefecturesから最新データ列latestを取得
   var date = latest[0] + '/' + latest[1] + '/' + latest[2]; // latestから最新日付を取得
   var eRNumber = latest[3]; // latestからR0　実行再生算数を取得
@@ -65,7 +65,8 @@ riskCalcR = () => {
   return outputR;
 }
 
-riscCalcD = () => {
+
+function riscCalcD() {
   var ageG;
   var uAge;
   var gen = uAge;
@@ -139,7 +140,8 @@ riscCalcD = () => {
   return outputD;
 }
 
-riskCalcV = () => {
+
+fundtion riskCalcV() {
   var outputV;
   if ( userVac === "phizer"){
     outputV = 
@@ -162,13 +164,14 @@ riskCalcButton.onclick = () => {
   let uAge = userAgeImput.value;
   let uVac = userVacImput.value;
 
+  riscCalcR();
   riscCalcD();
   riskCalcV();
 
   let comment = `
-  【${uPref}在住${uAge}歳${uName}のcovid-19感染致死リスク状況】<br>
+  【国内在住${uName}${uAge}のcovid-19感染致死リスク状況】<br>
+  ${outputR}<br>
   ${outputD}<br>
-  ${outputP}<br>
   ${outputV}<br>
 
   <a href="https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1">警察庁交通局交通企画課「令和２年中の交通事故死者について」</a><br>
@@ -178,7 +181,7 @@ riskCalcButton.onclick = () => {
   resultDivided.innerHTML = comment;
 
   console.log(`ユーザー名は ${uName} さんです`);
-  console.log(`地域は ${uPref} です`);
+  console.log(`世代は ${uAge} です`);
   console.log(`ワクチン種は ${uVac} です`);
 
 }
