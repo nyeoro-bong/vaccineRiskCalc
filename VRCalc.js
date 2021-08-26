@@ -18,23 +18,21 @@ getCSV = () => {
     
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < lines.length ; ++i) {
-      datasD[i] = lines[i].split(',');
+      datasD[i] = lines[i].split(',');
     }
   });
   csvData.open('GET','demography.csv',true);
   csvData.send();
-
-  return datasD;
-  
   console.log(datasD);
-}
-
-function riskCalcD() {
-    console.log(datasD);
-      // ageG = datasD[2][3];
+  return datasD;
 }
 
 getCSV();
+
+function riskCalcD() {
+  console.log(datasD);
+  let ageG = datasD[2][3];
+}
 
 riskCalcButton.onclick = () => {
   let uName = userNameImput.value;
