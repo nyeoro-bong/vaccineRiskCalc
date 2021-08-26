@@ -29,7 +29,6 @@ getCSV = () => {
 }
 
 function riskCalcD() {
-      console.log(datasD);
       ageG = datasD[2][3];
 }
 
