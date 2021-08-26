@@ -22,8 +22,10 @@ getCSV = () => {
   });
   csvData.open('GET','demography.csv',true);
   csvData.send();
-  console.log(datasD);
+
   return datasD;
+  
+  console.log(datasD);
 }
 
 function riskCalcD() {
