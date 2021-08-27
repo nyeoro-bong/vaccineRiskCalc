@@ -108,6 +108,6 @@ riskCalcButton.onclick = () => {
 
   riskCalcD();
 
-  resultDivided.innerHTML = `年代は${ageG}です。`;
+  resultDivided.innerHTML = `年代は${ageG}検討ワクチンは${uVac}です。`;
 
 }
