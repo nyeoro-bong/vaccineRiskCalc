@@ -7,7 +7,11 @@ let resultDivided = document.getElementById(`result-area`);
 let infoDivided = document.getElementById(`info-area`);
 let tweetDivided = document.getElementById(`tweet-area`);
 let datasD = [];
+let uName =0;
+let uAge =0;
+let uVac =0;
 let ageG =0;
+
 
 getCSV = () => {
   let lines = [];
@@ -102,9 +106,9 @@ function riskCalcD() {
 }
 
 riskCalcButton.onclick = () => {
-  let uName = userNameImput.value;
-  let uAge = userAgeImput.value;
-  let uVac = userVacImput.value;
+  uName = userNameImput.value;
+  uAge = userAgeImput.value;
+  uVac = userVacImput.value;
 
   riskCalcD();
 
