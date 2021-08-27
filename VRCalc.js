@@ -6,9 +6,9 @@ let outputDivided = document.getElementById(`output-area`);
 let resultDivided = document.getElementById(`result-area`);
 let infoDivided = document.getElementById(`info-area`);
 let tweetDivided = document.getElementById(`tweet-area`);
+let datasD = [];
 
 getCSV = () => {
-  let datasD = [];
   let lines = [];
   let csvData = new XMLHttpRequest();
   csvData.addEventListener('load', (event) => {
