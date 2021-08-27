@@ -6,7 +6,7 @@ let outputDivided = document.getElementById(`output-area`);
 let resultDivided = document.getElementById(`result-area`);
 let infoDivided = document.getElementById(`info-area`);
 let tweetDivided = document.getElementById(`tweet-area`);
-
+ß
 getCSV = () => {
   let datasD = [];
   let lines = [];
@@ -65,54 +65,55 @@ riskCalcR = () => {
   return outputR;
 }
 
-riscCalcD = () => {
-  // uAgeで指定された年齢から同世代感染状況の最新データを取得
+function riskCalcD() {
   var ageG;
-  switch(uAge) {
-    case 10th :
-      ageG = demography[2][3];
-      console.log(`年代は ${uAge} です`);
+  var uAge;
+  var gen = uAge;
+  switch (gen) {
+    case "10th":
+      ageG = datasD[2][3];
+      console.log(`年代は ${ageG} です`);
       break;
     case "20th":
-      ageG = demography[3][3];
-      console.log(`年代は ${uAge} です`);
+      ageG = datasD[3][3];
+      console.log(`年代は ${ageG} です`);
       break;
     case "30th":
-      ageG = demography[4][3]; 
-      console.log(`年代は ${uAge} です`);
+      ageG = datasD[4][3]; 
+      console.log(`年代は ${ageG} です`);
       break;
     case "40th":
-      ageG = demography[5][3]; 
-      console.log(`年代は ${uAge} です`);
+      ageG = datasD[5][3]; 
+      console.log(`年代は ${ageG} です`);
       break;
     case "50th":
-      ageG = demography[6][3]; 
-      console.log(`年代は ${uAge} です`);
+      ageG = datasD[6][3]; 
+      console.log(`年代は ${ageG} です`);
       break;
     case "60th":
-      ageG = demography[7][3];
-      console.log(`年代は ${uAge} です`);
+      ageG = datasD[7][3];
+      console.log(`年代は ${ageG} です`);
       break;
     case "70th":
-      ageG = demography[8][3]; 
-      console.log(`年代は ${uAge} です`);
+      ageG = datasD[8][3]; 
+      console.log(`年代は ${ageG} です`);
       break;
     case "80th":
-      ageG = demography[9][3];
-      console.log(`年代は ${uAge} です`);
+      ageG = datasD[9][3];
+      console.log(`年代は ${ageG} です`);
       break;
     case "0th":
-      ageG = demography[1][3];
-      console.log(`年代は ${uAge} です`);
+      ageG = datasD[1][3];
+      console.log(`年代は ${ageG} です`);
       break;
   }
     
-  var datasD = demography.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
-  var dateD = datasD[datasD.length-1][0] + '/' + datasD[datasD.length-1][1] + '/' + datasD[datasD.length-1][2]; // demographyから最新日付を取得
-  var ageGroup = datasD[datasD.length-1][3]; //demographyから世代グループ名を取得
-  var testedPositive = datasD[datasD.length-1][4]; //demographyから世代陽性者累計を取得
-  var serious = datasD[datasD.length-1][6]; //demographyから同世代重症者数を取得
-  var death = datasD[datasD.length-1][7]; //demographyから同世代死者累計を取得
+  var datasD = datasD.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
+  var dateD = datasD[datasD.length-1][0] + '/' + datasD[datasD.length-1][1] + '/' + datasD[datasD.length-1][2]; // datasDから最新日付を取得
+  var ageGroup = datasD[datasD.length-1][3]; //datasDから世代グループ名を取得
+  var testedPositive = datasD[datasD.length-1][4]; //datasDから世代陽性者累計を取得
+  var serious = datasD[datasD.length-1][6]; //datasDから同世代重症者数を取得
+  var death = datasD[datasD.length-1][7]; //datasDから同世代死者累計を取得
   testedPositive = parseInt(testedPositive);
   serious = parseInt(serious);
   death = parseInt(death);
@@ -138,7 +139,8 @@ riscCalcD = () => {
   return outputD;
 }
 
-riskCalcV = () => {
+
+function riskCalcV() {
   var outputV;
   if ( userVac === "phizer"){
     outputV = 
@@ -159,15 +161,16 @@ getCSVR();
 riskCalcButton.onclick = () => {
   let uName = userNameImput.value;
   let uAge = userAgeImput.value;
-  let outputV = userVacImput.value;
+  let uVac = userVacImput.value;
 
-  riscCalcD();
+  riskCalcR();
+  riskCalcD();
   riskCalcV();
 
   let comment = `
-  【${uPref}在住${uAge}歳${uName}のcovid-19感染致死リスク状況】<br>
+  【国内在住${uName}${uAge}のcovid-19感染致死リスク状況】<br>
+  ${outputR}<br>
   ${outputD}<br>
-  ${outputP}<br>
   ${outputV}<br>
 
   <a href="https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1">警察庁交通局交通企画課「令和２年中の交通事故死者について」</a><br>
@@ -177,7 +180,7 @@ riskCalcButton.onclick = () => {
   resultDivided.innerHTML = comment;
 
   console.log(`ユーザー名は ${uName} さんです`);
-  console.log(`地域は ${uPref} です`);
+  console.log(`世代は ${uAge} です`);
   console.log(`ワクチン種は ${uVac} です`);
 
 }
