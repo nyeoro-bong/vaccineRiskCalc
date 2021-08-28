@@ -128,7 +128,7 @@ function riskCalcD() {
   datasD = datasD.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
   processD(datasD);
   processV();
-  resultDivided.innerHTML = `<br>${outputD} <br>${outputV}`;
+
 }
 
 riskCalcButton.onclick = () => {
@@ -137,7 +137,9 @@ riskCalcButton.onclick = () => {
   uVac = userVacImput.value;
 
   riskCalcD();
+  
+  resultDivided.innerHTML = `<br>${outputD} <br>${outputV}`;
 
-  resultDivided.innerHTML = `あなたの${ageG}世代です。摂取検討ワクチンは${uVac}です。`;
+//   resultDivided.innerHTML = `あなたの${ageG}世代です。摂取検討ワクチンは${uVac}です。`;
 
 }
