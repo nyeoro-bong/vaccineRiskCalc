@@ -54,12 +54,12 @@ function processD(){
   if (fatality < TAfatality2020){
     riskFlag = '低い水準です';
   } else if (fatality > TAfatality2020){
-    riskFlag = '高水準のリスクです';
+    riskFlag = '高水準のリスクです。感染に備え、ワクチン摂取で発症予防発効する対策が有効です。';
   } else {
     riskFlag = '同水準です';
   }
 
-  outputD = `${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計:${death}), ★国内${ageG}のCovid-19感染致死率は${fatality +'%'}です。昨年度交通事故死亡率:${TAfatality2020 +'%'}と比べて${riskFlag}。（${dateD}集計）`;
+  outputD = `${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計:${death})<br>★国内${ageG}のCovid-19感染致死率は${fatality +'%'}です。昨年度交通事故死亡率:${TAfatality2020 +'%'}と比べて${riskFlag}。（${dateD}集計）`;
   return outputD;
 }
 
@@ -139,7 +139,7 @@ riskCalcButton.onclick = () => {
   
   resultDivided.innerHTML = `<h3>${uName}さんのcovid19感染致死リスク状況<br>【死亡リスク状況】${outputD} <br>【ワクチン公開情報】${outputV}</h3>`;
   
-  infoDivided.innerHTML = `【オープンデータ掲載ソースを確認】<br>
+  infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】<br>
  <a href="https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1">令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_00184.html">新型コロナワクチンについて | 厚生労働省</a><br>
  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_00184.html">kaz-ogiwaraさんのリポジトリ（CSVデータ参照元）GitHub - kaz-ogiwara/covid19</a><br>
