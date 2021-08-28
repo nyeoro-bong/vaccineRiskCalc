@@ -1,4 +1,5 @@
 let userNameImput = document.getElementById(`userName`);
+let userPrefImput = document.getElementById(`userPref`);
 let userAgeImput = document.getElementById(`userAge`);
 let userVacImput = document.getElementById(`userVac`);
 let riskCalcButton = document.getElementById(`riskCalc`);
@@ -8,10 +9,12 @@ let infoDivided = document.getElementById(`info-area`);
 let tweetDivided = document.getElementById(`tweet-area`);
 let datasD = [];
 let uName =0;
+let uPref =0;
 let uAge =0;
 let uVac =0;
 let ageG =0;
 let outputD=0;
+let outputV=0;
 
 
 getCSV = () => {
@@ -132,6 +135,7 @@ function riskCalcD() {
 
 riskCalcButton.onclick = () => {
   uName = userNameImput.value;
+  uPref = userPrefImput.value;
   uAge = userAgeImput.value;
   uVac = userVacImput.value;
 
