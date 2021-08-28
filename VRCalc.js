@@ -13,8 +13,8 @@ let uPref =0;
 let uAge =0;
 let uVac =0;
 let ageG =0;
-let outputD=0;
-let outputV=0;
+let outputD;
+let outputV;
 
 
 getCSV = () => {
