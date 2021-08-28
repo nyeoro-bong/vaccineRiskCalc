@@ -64,7 +64,7 @@ function processD(){
     riskFlag = '同水準です';
   }
 
-  outputD = `国内${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious}#1 + 死者累計数:${death})<br> ★国内${ageG}のCovid-19感染致死率は${fatality +'%'}です。昨年度交通事故死亡率:${TAfatality2020 +'%'} #2 と比べて${riskFlag}。（${dateD}集計）`;
+  outputD = `国内${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} →注#1 + 死者累計数:${death})<br> 国内${ageG}のCovid-19感染致死率は${fatality +'%'}です。昨年度の交通事故死亡率:${TAfatality2020 +'%'} →注#2 と比べて${riskFlag}。（${dateD}集計）`;
   return outputD;
 }
 
@@ -134,20 +134,19 @@ function riskCalcD() {
 riskCalcButton.onclick = () => {
   // removeAllchildren(resultDivided);   //演算結果があれば消す
   uName = userNameImput.value;
-  uPref = userPrefImput.value;
+  // uPref = userPrefImput.value;
   uAge = userAgeImput.value;
   uVac = userVacImput.value;
   
   riskCalcD();
   
   let header4 = document.createElement(`h4`);
-  header4.innerHTML = `世代層${ageG}の ${uName} さんのcovid19感染致死リスク状況<br>【致命的リスク状況】<br>${outputD} <br>【ワクチン公開情報】<br>${outputV}`;  
+  header4.innerHTML = `所属世代層${ageG} ${uName} さんのcovid19感染致死リスク状況<br>【死亡リスク】<br>${outputD} <br>【ワクチン公開情報】<br>${outputV}`;  
   resultDivided.appendChild(header4);
 
-  outputDivided.innerHTML = `(用語補足情報)<br>
-  #1 重症者:エクモ等の人工呼吸器を必要とする状態の者<br>
-  #2 交通事故死亡率：計算式＝交通事故死者数(事故原因で30日以内に死亡した者)${deathTrafficAccident202０} ÷　人身事故発生数${trafficAccident2020}（年度：2020、単位：%）<br>
-  #3 重篤副反応：アナフィキラシーショック及び血栓発生<br>
+  outputDivided.innerHTML = `
+  #1 重症者：エクモ等の人工呼吸器を必要とする状態の者<br>
+  #2 交通事故死亡率：計算式＝交通事故死者数(事故原因で30日以内に死亡した者)${deathTrafficAccident2020} ÷ 人身事故発生件数${trafficAccident2020}（年度：2020、単位：%）<br>
   `
   
   infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】<br>
