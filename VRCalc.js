@@ -59,7 +59,7 @@ function processD(){
     riskFlag = '同水準です';
   }
 
-  outputD = `【死亡リスク】${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計:${death}), ★国内${ageG}のCovid-19感染致死率は${fatality +'%'}です。昨年度交通事故死亡率:${TAfatality2020 +'%'}と比べて${riskFlag}。（${dateD}集計）`;
+  outputD = `${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計:${death}), ★国内${ageG}のCovid-19感染致死率は${fatality +'%'}です。昨年度交通事故死亡率:${TAfatality2020 +'%'}と比べて${riskFlag}。（${dateD}集計）`;
   return outputD;
 }
 
@@ -137,9 +137,9 @@ riskCalcButton.onclick = () => {
 
   riskCalcD();
   
-  resultDivided.innerHTML = `${uAge}${uName}さんのcovid19感染致死リスク状況<br>${outputD} <br>${outputV}`;
+  resultDivided.innerHTML = `${uAge}${uName}さんのcovid19感染致死リスク状況<br>【死亡リスク状況】${outputD} <br>【ワクチン公開情報】${outputV}`;
   
-  infoDivided.innerHTML = `<br> <a href="https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1">令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
+  infoDivided.innerHTML = `【オープンデータ掲載ソース】<br> <a href="https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1">令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
  <br> <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_00184.html">新型コロナワクチンについて | 厚生労働省</a><br>
  `;
 
