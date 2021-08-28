@@ -3,16 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ovid19ワクチン摂取リスクアセスメント</title>
+  <title>covid19ワクチン摂取リスクアセスメント</title>
 </head>
 <body>
-
   <h1>covid19ワクチン検討リスクチェッカー</h1>
-  <p>項目を入力して計算するボタンを押してください</p>
-
-<!--   <p>名　前　<input type="text" id="userName" size="40" maxlength="20"></p> -->
-
-  <p>年　代　<select name="userAge" id="userAge">
+  項目を入力して計算するボタンを押してください<br>
+  <p>名　　前<input type="text" id="userName" size="40" maxlength="20">
+  </p>
+  <p>都道府県<select name="userPref" id="userPref">
+    <option value="Tokyo">東京</option>
+    <option value="Hokkaido">北海道</option>
+    <option value="Osaka">大阪</option>
+    <option value="Kyoto">京都</option>
+    <option value="Aomori">青森</option>
+    <option value="Akita">秋田</option>
+    <option value="Iwawte">岩手</option>
+    <option value="Yamagata">山形</option>
+  </select></p> 
+  <p>年　　代<select name="userAge" id="userAge">
     <option value="10th">１０代</option>
     <option value="20th">２０代</option>
     <option value="30th">３０代</option>
@@ -22,18 +30,16 @@
     <option value="70th">７０代</option>
     <option value="80th">８０代以上</option>
   </select></p>
-  
   <p>検討ワクチン<select name="userVac" id="userVac">
     <option value="none">摂取しない</option>
     <option value="phizer">ファイザー</option>
     <option value="moderna">モデルナ</option>
     <option value="astra-zeneca">アストラゼネカ</option>
   </select></p>
+  <p>covid19感染致死＋重症化リスク<button id="riskCalc" onclick="window.location.reload(true);">計算する</button></p>
 
-  <p>covid19感染致死＋重症化リスク<button id="riskCalc">計算する</button></p>
-
-  <div id="output-area"></div>
   <div id="result-area"></div>
+  <div id="output-area"></div>
   <div id="info-area"></div>
   <div id="tweet-area">
       <!--
