@@ -120,7 +120,7 @@ function riskCalcD() {
       break;
   }
   return ageG;
-  processD();
+  processD(ageG);
   processV();
 
 }
