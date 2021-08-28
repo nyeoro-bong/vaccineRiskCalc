@@ -133,8 +133,15 @@ function riskCalcD() {
 
 }
 
+function removeAllchildren(element){
+    while(element.firstChild){
+        element.removeChild(element.firstChild);    //エレメントに子要素がある限り削除
+    }
+}
+
+
 riskCalcButton.onclick = () => {
-  removeAllchildren(resultDivided);   //消す
+  removeAllchildren(resultDivided);   //演算結果があれば消す
   uName = userNameImput.value;
   uPref = userPrefImput.value;
   uAge = userAgeImput.value;
