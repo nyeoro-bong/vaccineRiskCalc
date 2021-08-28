@@ -6,7 +6,6 @@
   <title>ovid19ワクチン摂取リスクアセスメント</title>
 </head>
 <body>
-
   <h1>covid19ワクチン検討リスクチェッカー</h1>
   <p>項目を入力して計算するボタンを押してください</p>
   <p>名　前　<input type="text" id="userName" size="40" maxlength="20"></p>
@@ -20,14 +19,12 @@
     <option value="70th">７０代</option>
     <option value="80th">８０代以上</option>
   </select></p>
-  
   <p>検討ワクチン<select name="userVac" id="userVac">
-    <option value="phizer">ファイザー</option>
+    <option value="none">摂取しない</option>
+    <option value="phizer">ファイザー</option>
     <option value="moderna">モデルナ</option>
     <option value="astra-zeneca">アストラゼネカ</option>
-    <option value="none">摂取しない</option>
   </select></p>
-
   <p>covid19感染致死＋重症化リスク<button id="riskCalc">計算する</button></p>
 
   <div id="output-area"></div>
