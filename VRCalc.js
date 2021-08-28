@@ -11,7 +11,8 @@ let uName =0;
 let uAge =0;
 let uVac =0;
 let ageG =0;
-let outputD=0;
+let outputD =0;
+let outputV =0
 
 
 getCSV = () => {
@@ -36,6 +37,7 @@ getCSV = () => {
 getCSV();
 
 function processD(){
+  datasD = datasD.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
   var dateD = datasD[datasD.length-1][0] + '/' + datasD[datasD.length-1][1] + '/' + datasD[datasD.length-1][2]; // datasDから最新日付を取得
   var testedPositive = datasD[datasD.length-1][4]; //datasDから世代陽性者累計を取得
   var serious = datasD[datasD.length-1][6]; //datasDから同世代重症者数を取得
@@ -61,7 +63,15 @@ function processD(){
   }
 
   outputD = `【死亡リスク】${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計:${death}), ★国内${ageG}のCovid-19感染致死率は${fatality +'%'}です。昨年度交通事故死亡率:${TAfatality2020 +'%'}と比べて${riskFlag}。（${dateD}集計）`;
-  return outputD;
+}
+
+function processV(){
+
+  outputV =
+  `ファイザーはmRNA型ワクチンで発症予防効果率は約95%です。痛みや発熱等の副反応が確認されています。重篤副反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
+  `モデルナはmRNA型ワクチンで発症予防効果率は約94%です。副反応が確認されておりファイザーに比べて痛みや発熱等症状の発生率が(5〜20pt)高めです。重篤副反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
+  `アストラゼネカはウイルスベクター型ワクチンで発症予防効果率は約70%です。副反応および重篤副反応発生率に関する公開データはありません。(厚労省8/4報告資料より)`;
+  ;
 }
 
 function riskCalcD() {
@@ -103,8 +113,8 @@ function riskCalcD() {
       console.log(`年代は ${ageG} です`);
       break;
   }
-  datasD = datasD.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
-  processD(datasD);
+  processD();
+  processV();
 }
 
 
@@ -115,6 +125,6 @@ riskCalcButton.onclick = () => {
 
   riskCalcD();
 
-  resultDivided.innerHTML = `あなたの${ageG}世代です。摂取検討ワクチンは${uVac}です。${outputD}`;
+  resultDivided.innerHTML = `あなたは${ageG}世代です。摂取検討ワクチンは${uVac}です。${outputD} ${outputV}`;
 
 }
