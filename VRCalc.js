@@ -150,7 +150,7 @@ riskCalcButton.onclick = () => {
   riskCalcD();
   
   let header4 = document.createElement(`h4`);
-  header4.innerHTML = `${uName}さんのcovid19感染致死リスク状況<br>【死亡リスク状況】<br>${outputD} <br>【ワクチン公開情報】<br>${outputV}`;  
+  header4.innerHTML = `${uName}さんのcovid19感染致死リスク状況<br>【感染致死リスク状況】<br>${outputD} <br>【ワクチン公開情報】<br>${outputV}`;  
   resultDivided.appendChild(header4);
   
   infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】<br>
