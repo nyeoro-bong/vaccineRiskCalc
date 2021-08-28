@@ -62,7 +62,7 @@ function processD(){
     riskFlag = '同水準です';
   }
 
-  outputD = `${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計:${death})<br>★国内${ageG}のCovid-19感染致死率は${fatality +'%'}です。昨年度交通事故死亡率:${TAfatality2020 +'%'}と比べて${riskFlag}。（${dateD}集計）`;
+  outputD = `${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計:${death})<br> ★国内${ageG}のCovid-19感染致死率は${fatality +'%'}です。昨年度交通事故死亡率:${TAfatality2020 +'%'}と比べて${riskFlag}。（${dateD}集計）`;
   return outputD;
 }
 
@@ -70,15 +70,15 @@ function processD(){
 function processV(){
   switch(uVac) {
     case "phizer":
-      outputV = `ファイザーはmRNA型ワクチンで発症予防効果率は約95%です。痛みや発熱等の副反応が確認されています。重篤副反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
+      outputV = `ファイザーはmRNA型ワクチンで発症予防効果率は約95%です。<br>痛みや発熱等の副反応が確認されています。<br>重篤副反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
       break;
     case "moderna":
       outputV = 
-      `モデルナはmRNA型ワクチンで発症予防効果率は約94%です。副反応が確認されておりファイザーに比べて痛みや発熱等症状の発生率が(5〜20pt)高めです。重篤副反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
+      `モデルナはmRNA型ワクチンで発症予防効果率は約94%です。<br>副反応が確認されておりファイザーに比べて痛みや発熱等症状の発生率が(5〜20pt)高めです。<br>重篤副反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
       break;
     case "astra-zeneca":
       outputV = 
-      `アストラゼネカはウイルスベクター型ワクチンで発症予防効果率は約70%です。副反応および重篤副反応発生率に関する公開データはありません。(厚労省8/4報告資料より)`;
+      `アストラゼネカはウイルスベクター型ワクチンで発症予防効果率は約70%です。<br>副反応および重篤副反応発生率に関する公開データはありません。(厚労省8/4報告資料より)`;
       break;
     default:
       outputV = ""
@@ -134,14 +134,17 @@ function riskCalcD() {
 }
 
 riskCalcButton.onclick = () => {
+  removeAllchildren(resultDivided);   //消す
   uName = userNameImput.value;
   uPref = userPrefImput.value;
   uAge = userAgeImput.value;
   uVac = userVacImput.value;
-
+  
   riskCalcD();
   
-  resultDivided.innerHTML = `<h3>${uName}さんのcovid19感染致死リスク状況<br>【死亡リスク状況】${outputD} <br>【ワクチン公開情報】${outputV}</h3>`;
+  let header4 = document.createElement(`h4`);
+  header4.innerHTML = `${uName}さんのcovid19感染致死リスク状況<br>【死亡リスク状況】<br>${outputD} <br>【ワクチン公開情報】<br>${outputV}`;  
+  resultDivided.appendChild(header4);
   
   infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】<br>
  <a href="https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1">令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
