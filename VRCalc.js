@@ -38,22 +38,23 @@ getCSV = () => {
 getCSV();
 
 function processD(){
-  var dateD = datasD[datasD.length-1][0] + '/' + datasD[datasD.length-1][1] + '/' + datasD[datasD.length-1][2]; // datasDから最新日付を取得
-  var testedPositive = datasD[datasD.length-1][4]; //datasDから世代陽性者累計を取得
-  var serious = datasD[datasD.length-1][6]; //datasDから同世代重症者数を取得
-  var death = datasD[datasD.length-1][7]; //datasDから同世代死者累計を取得
+  datasD = datasD.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
+  let dateD = datasD[datasD.length-1][0] + '/' + datasD[datasD.length-1][1] + '/' + datasD[datasD.length-1][2]; // datasDから最新日付を取得
+  let testedPositive = datasD[datasD.length-1][4]; //datasDから世代陽性者累計を取得
+  let serious = datasD[datasD.length-1][6]; //datasDから同世代重症者数を取得
+  let death = datasD[datasD.length-1][7]; //datasDから同世代死者累計を取得
   testedPositive = parseInt(testedPositive);
   serious = parseInt(serious);
   death = parseInt(death);
-  var fatal = serious + death ; //serious と　death から最新日付の同世代致死症例数を計算
-  var fatality = (fatal / testedPositive)*100; //致死リスク率を計算
+  let fatal = serious + death ; //serious と　death から最新日付の同世代致死症例数を計算
+  let fatality = (fatal / testedPositive)*100; //致死リスク率を計算
   fatality = fatality.toFixed(2); //小数点第2位の数値に成型
-  var trafficAccident2020 = 309000; //出典　警察庁交通局交通企画課「令和２年中の交通事故死者について」2021/1/6
-  var deathTrafficAccident2020 = 2839; //参照元　https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1
-  var TAfatality2020 = (deathTrafficAccident2020 / trafficAccident2020)*100; //２０２０年度交通事故致死リスク率を計算
+  let trafficAccident2020 = 309000; //出典　警察庁交通局交通企画課「令和２年中の交通事故死者について」2021/1/6
+  let deathTrafficAccident2020 = 2839; //参照元　https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1
+  let TAfatality2020 = (deathTrafficAccident2020 / trafficAccident2020)*100; //２０２０年度交通事故致死リスク率を計算
   TAfatality2020 = TAfatality2020.toFixed(2); //小数点第2位の数値に成型
   
-  var riskFlag =0;
+  let riskFlag =0;
   if (fatality < TAfatality2020){
     riskFlag = '低い水準です';
   } else if (fatality > TAfatality2020){
@@ -92,43 +93,34 @@ function riskCalcD() {
   switch (uAge) {
     case "10th":
       ageG = datasD[2][3];
-      console.log(`年代は ${ageG} です`);
       break;
     case "20th":
       ageG = datasD[3][3];
-      console.log(`年代は ${ageG} です`);
       break;
     case "30th":
       ageG = datasD[4][3]; 
-      console.log(`年代は ${ageG} です`);
       break;
     case "40th":
       ageG = datasD[5][3]; 
-      console.log(`年代は ${ageG} です`);
       break;
     case "50th":
       ageG = datasD[6][3]; 
-      console.log(`年代は ${ageG} です`);
       break;
     case "60th":
       ageG = datasD[7][3];
-      console.log(`年代は ${ageG} です`);
       break;
     case "70th":
       ageG = datasD[8][3]; 
-      console.log(`年代は ${ageG} です`);
       break;
     case "80th":
       ageG = datasD[9][3];
-      console.log(`年代は ${ageG} です`);
       break;
     case "0th":
       ageG = datasD[1][3];
-      console.log(`年代は ${ageG} です`);
       break;
   }
-  datasD = datasD.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
-  processD(datasD);
+  return ageG;
+  processD();
   processV();
 
 }
