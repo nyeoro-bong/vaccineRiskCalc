@@ -147,7 +147,7 @@ riskCalcButton.onclick = () => {
   resultDivided.appendChild(header4);
   
   infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】<br>
- <a href="https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1">令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
+ <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00130002&tstat=000001032793&cycle=7&year=20200&month=0">令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_00184.html">新型コロナワクチンについて | 厚生労働省</a><br>
  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_00184.html">kaz-ogiwaraさんのリポジトリ（CSVデータ参照元）GitHub - kaz-ogiwara/covid19</a><br>
  <a href="https://toyokeizai.net/sp/visual/tko/covid19/">『東洋経済オンライン「新型コロナウイルス 国内感染の状況」制作：荻原和樹』</a><br>
