@@ -64,6 +64,25 @@ function processD(){
   return outputD;
 }
 
+
+function processV(){
+  switch(uVac) {
+    case phizer:
+      outputV = `ファイザーはmRNA型ワクチンで発症予防効果率は約95%です。痛みや発熱等の副反応が確認されています。重篤副反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
+      break;
+    case moderna:
+      outputV = 
+      `モデルナはmRNA型ワクチンで発症予防効果率は約94%です。副反応が確認されておりファイザーに比べて痛みや発熱等症状の発生率が(5〜20pt)高めです。重篤副反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
+      break;
+    case moderna:
+      outputV = 
+      `アストラゼネカはウイルスベクター型ワクチンで発症予防効果率は約70%です。副反応および重篤副反応発生率に関する公開データはありません。(厚労省8/4報告資料より)`;
+      break;
+  }
+  return outputV;
+}
+
+
 function riskCalcD() {
   switch (uAge) {
     case "10th":
@@ -105,6 +124,25 @@ function riskCalcD() {
   }
   datasD = datasD.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
   processD(datasD);
+  processV();
+  resultDivided.innerHTML = `<br>${outputD} <br>${outputV}`;
+}
+
+function processV(){
+  switch(uVac) {
+    case phizer:
+      outputV = `ファイザーはmRNA型ワクチンで発症予防効果率は約95%です。痛みや発熱等の副反応が確認されています。重篤副反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
+      break;
+    case moderna:
+      outputV = 
+      `モデルナはmRNA型ワクチンで発症予防効果率は約94%です。副反応が確認されておりファイザーに比べて痛みや発熱等症状の発生率が(5〜20pt)高めです。重篤副反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
+      break;
+    case moderna:
+      outputV = 
+      `アストラゼネカはウイルスベクター型ワクチンで発症予防効果率は約70%です。副反応および重篤副反応発生率に関する公開データはありません。(厚労省8/4報告資料より)`;
+      break;
+  }
+  return outputV;
 }
 
 
@@ -115,6 +153,6 @@ riskCalcButton.onclick = () => {
 
   riskCalcD();
 
-  resultDivided.innerHTML = `あなたの${ageG}世代です。摂取検討ワクチンは${uVac}です。${outputD}`;
+  resultDivided.innerHTML = `あなたの${ageG}世代です。摂取検討ワクチンは${uVac}です。`;
 
 }
