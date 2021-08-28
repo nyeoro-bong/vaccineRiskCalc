@@ -1,4 +1,4 @@
-// let userNameImput = document.getElementById(`userName`);
+let userNameImput = document.getElementById(`userName`);
 let userAgeImput = document.getElementById(`userAge`);
 let userVacImput = document.getElementById(`userVac`);
 let riskCalcButton = document.getElementById(`riskCalc`);
@@ -19,7 +19,6 @@ getCSV = () => {
   let csvData = new XMLHttpRequest();
   csvData.addEventListener('load', (event) => {
     const response = event.target.responseText;
-    outputDivided.innerHTML = response;
     lines = response.split('\n');
     
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
@@ -132,14 +131,16 @@ function riskCalcD() {
 }
 
 riskCalcButton.onclick = () => {
-//   uName = userNameImput.value;
+  uName = userNameImput.value;
   uAge = userAgeImput.value;
   uVac = userVacImput.value;
 
   riskCalcD();
   
   resultDivided.innerHTML = `<br>${outputD} <br>${outputV}`;
-
-//   resultDivided.innerHTML = `あなたの${ageG}世代です。摂取検討ワクチンは${uVac}です。`;
+  
+  infoDivided.innerHTML = `<br> <a href="https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1">令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
+ <br> <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_00184.html">新型コロナワクチンについて | 厚生労働省</a><br>
+ `;
 
 }
