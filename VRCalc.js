@@ -137,10 +137,13 @@ riskCalcButton.onclick = () => {
 
   riskCalcD();
   
-  resultDivided.innerHTML = `${uAge}${uName}さんのcovid19感染致死リスク状況<br>【死亡リスク状況】${outputD} <br>【ワクチン公開情報】${outputV}`;
+  resultDivided.innerHTML = `<h3>${uName}さんのcovid19感染致死リスク状況<br>【死亡リスク状況】${outputD} <br>【ワクチン公開情報】${outputV}</h3>`;
   
-  infoDivided.innerHTML = `【オープンデータ掲載ソース】<br> <a href="https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1">令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
- <br> <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_00184.html">新型コロナワクチンについて | 厚生労働省</a><br>
+  infoDivided.innerHTML = `【オープンデータ掲載ソースを確認】<br>
+ <a href="https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1">令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
+ <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_00184.html">新型コロナワクチンについて | 厚生労働省</a><br>
+ <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_00184.html">kaz-ogiwaraさんのリポジトリ（CSVデータ参照元）GitHub - kaz-ogiwara/covid19</a><br>
+ <a href="https://toyokeizai.net/sp/visual/tko/covid19/">『東洋経済オンライン「新型コロナウイルス 国内感染の状況」制作：荻原和樹』</a><br>
  `;
 
 }
