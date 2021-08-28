@@ -144,9 +144,9 @@ riskCalcButton.onclick = () => {
   resultDivided.appendChild(header4);
 
   outputDivided.innerHTML = `(用語補足情報)<br>
-  #1 重症者:エクモ等人工呼吸器を必要とする状態の者<br>
-  #2 交通事故死亡率：計算式＝交通事故死者数(事故原因で30日以内に死亡した者)${deathTrafficAccident202} ÷　人身事故発生数${trafficAccident2020}（年度：2020、単位：%）<br>
-  #3 重篤副反応：アナフィキラシーショック及び血栓発生症例のこと<br>
+  #1 重症者:エクモ等の人工呼吸器を必要とする状態の者<br>
+  #2 交通事故死亡率：計算式＝交通事故死者数(事故原因で30日以内に死亡した者)${deathTrafficAccident202０} ÷　人身事故発生数${trafficAccident2020}（年度：2020、単位：%）<br>
+  #3 重篤副反応：アナフィキラシーショック及び血栓発生<br>
   `
   
   infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】<br>
