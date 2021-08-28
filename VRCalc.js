@@ -1,5 +1,5 @@
 let userNameImput = document.getElementById(`userName`);
-let userPrefImput = document.getElementById(`userPref`);
+// let userPrefImput = document.getElementById(`userPref`);
 let userAgeImput = document.getElementById(`userAge`);
 let userVacImput = document.getElementById(`userVac`);
 let riskCalcButton = document.getElementById(`riskCalc`);
@@ -9,12 +9,15 @@ let infoDivided = document.getElementById(`info-area`);
 let tweetDivided = document.getElementById(`tweet-area`);
 let datasD = [];
 let uName =0;
-let uPref =0;
+// let uPref =0;
 let uAge =0;
 let uVac =0;
 let ageG =0;
 let outputD;
 let outputV;
+let trafficAccident2020 = 309000; //出典　警察庁交通局交通企画課「令和２年中の交通事故死者について」2021/1/6
+let deathTrafficAccident2020 = 2839; //参照元　https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1
+
 
 
 getCSV = () => {
@@ -49,8 +52,6 @@ function processD(){
   let fatal = serious + death ; //serious と　death から最新日付の同世代致死症例数を計算
   let fatality = (fatal / testedPositive)*100; //致死リスク率を計算
   fatality = fatality.toFixed(2); //小数点第2位の数値に成型
-  let trafficAccident2020 = 309000; //出典　警察庁交通局交通企画課「令和２年中の交通事故死者について」2021/1/6
-  let deathTrafficAccident2020 = 2839; //参照元　https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1
   let TAfatality2020 = (deathTrafficAccident2020 / trafficAccident2020)*100; //２０２０年度交通事故致死リスク率を計算
   TAfatality2020 = TAfatality2020.toFixed(2); //小数点第2位の数値に成型
   
