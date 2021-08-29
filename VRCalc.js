@@ -8,12 +8,14 @@ let outputDivided = document.getElementById(`output-area`);
 let infoDivided = document.getElementById(`info-area`);
 let tweetDivided = document.getElementById(`tweet-area`);
 let datasD = [];
+let datasR = [];
 let uName =0;
 // let uPref =0;
 let uAge =0;
 let uVac =0;
 let ageG =0;
 let outputD;
+let outputR;
 let outputV;
 let trafficAccident2020 = 309000; //出典　警察庁交通局交通企画課「令和２年中の交通事故死者について」2021/1/6
 let deathTrafficAccident2020 = 2839; //参照元　https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1
@@ -39,6 +41,26 @@ getCSV = () => {
 }
 
 getCSV();
+
+getCSVR = () => {
+    let lines = [];
+    let csvData = new XMLHttpRequest();
+    csvData.addEventListener('load', (event) => {
+      const response = event.target.responseText;
+      lines = response.split('\n');
+      
+      // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
+      for (let i = 0; i < lines.length ; ++i) {
+        datasR[i] = lines[i].split(',');
+      }
+    });
+    csvData.open('GET','eRNumber.csv',true);
+    csvData.send();
+    console.log(datasR);
+    return datasR;
+  }
+  
+getCSVR();
 
 function processD(){
   datasD = datasD.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
@@ -66,6 +88,24 @@ function processD(){
 
   outputD = `国内${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} →注① + 死者累計数:${death})<br> 国内${ageG}のCovid-19感染致死率は<text id="fatality">${fatality +'%'}</text>です。昨年度の交通事故死亡率:${TAfatality2020 +'%'} →注② と比べて${riskFlag}。（${dateD}集計）`;
   return outputD;
+}
+
+function processR(){
+  let date = datasR[datasR.length-2][0]// latestから最新日付を取得
+  let eRNumber = datasR[datasR.length-2][1]; // latestからR0　実行再生算数を取得
+  let eRNComment = 0; // 実行再生算数コメント用に変数　eRNComment　を作成して初期化
+  if (eRNumber < 1) {
+    eRNComment = '減少傾向';
+  } else if (1 <= eRNumber && eRNumber < 1.1) {
+    eRNComment = 'やや増加傾向';
+  } else if (1.1 <= eRNumber && eRNumber < 1.3) {
+    eRNComment = '増加傾向';
+  } else {
+    eRNComment = '急速な増加傾向';
+  }
+
+  outputR = `国内実効再生産数R0は${eRNumber}で国内感染リスクは${eRNComment}です。（${date}現在）`;
+  return outputR;
 }
 
 
@@ -121,6 +161,7 @@ function riskCalcD() {
       break;
   }
   processD(ageG);
+  processR();
   processV();
 }
 
@@ -141,7 +182,7 @@ riskCalcButton.onclick = () => {
   riskCalcD();
   
   let header4 = document.createElement(`h4`);
-  header4.innerHTML = `所属世代層${ageG} ${uName} さんのcovid19感染致死リスク状況<br>【死亡リスク】<br>${outputD} <br>【ワクチン公開情報】<br>${outputV}`;  
+  header4.innerHTML = `所属世代層${ageG} ${uName} さんのcovid19感染致死リスク状況<br>【死亡リスク】<br>${outputD} <br>【流行状況】<br>${outputR}<br>【ワクチン公開情報】<br>${outputV}`;  
   resultDivided.appendChild(header4);
 
   outputDivided.innerHTML = `
