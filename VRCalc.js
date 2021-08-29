@@ -59,12 +59,12 @@ function processD(){
   if (fatality < TAfatality2020){
     riskFlag = '低い水準です';
   } else if (fatality > TAfatality2020){
-    riskFlag = '高水準のリスクです。感染に備え、ワクチン摂取で発症予防発効する対策が有効です。';
+    riskFlag = '高水準のリスクです。<br>感染に備え、ワクチン摂取で発症予防発効する対策が有効です';
   } else {
     riskFlag = '同水準です';
   }
 
-  outputD = `国内${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} →注#1 + 死者累計数:${death})<br> 国内${ageG}のCovid-19感染致死率は${fatality +'%'}です。昨年度の交通事故死亡率:${TAfatality2020 +'%'} →注#2 と比べて${riskFlag}。（${dateD}集計）`;
+  outputD = `国内${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} →注① + 死者累計数:${death})<br> 国内${ageG}のCovid-19感染致死率は<text id="fatality">${fatality +'%'}</text>です。昨年度の交通事故死亡率:${TAfatality2020 +'%'} →注② と比べて${riskFlag}。（${dateD}集計）`;
   return outputD;
 }
 
@@ -145,15 +145,14 @@ riskCalcButton.onclick = () => {
   resultDivided.appendChild(header4);
 
   outputDivided.innerHTML = `
-  #1 重症者：エクモ等の人工呼吸器を必要とする状態の者<br>
-  #2 交通事故死亡率：計算式＝交通事故死者数(事故原因で30日以内に死亡した者)${deathTrafficAccident2020} ÷ 人身事故発生件数${trafficAccident2020}（年度：2020、単位：%）<br>
+  注① 重症者：エクモ等の人工呼吸器を必要とする状態の者<br>
+  注② 交通事故死亡率：計算式＝交通事故死者数(事故原因で30日以内に死亡した者)${deathTrafficAccident2020} ÷ 人身事故発生件数${trafficAccident2020}（年度：2020、単位：%）<br>
   `
   
   infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】<br>
  <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00130002&tstat=000001032793&cycle=7&year=20200&month=0">令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_00184.html">新型コロナワクチンについて | 厚生労働省</a><br>
- <a href="https://github.com/kaz-ogiwara/covid19">kaz-ogiwaraさんのリポジトリ（CSVデータ参照元）GitHub - kaz-ogiwara/covid19</a><br>
- <a href="https://toyokeizai.net/sp/visual/tko/covid19/">『東洋経済オンライン「新型コロナウイルス 国内感染の状況」制作：荻原和樹』</a><br>
+ <a href="https://toyokeizai.net/sp/visual/tko/covid19/">『東洋経済オンライン「新型コロナウイルス 国内感染の状況」制作：荻原和樹』（CSVデータ参照元）</a><br>
  `;
 
 }
