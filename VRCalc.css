@@ -1,3 +1,7 @@
 #fatality{
   color: #fc0505;
 }
+
+body{
+  background-color: unset;
+}

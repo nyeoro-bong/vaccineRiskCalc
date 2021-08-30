@@ -86,6 +86,14 @@ function processD(){
     riskFlag = '同水準です';
   }
 
+  // if(fatality == 0.0){
+  //   document.body.style.replace.backgroundColor = "#ccffcc";
+  // } else if (fatality <TAfatality2020){
+  //   document.body.style.replace.backgroundColor = "#ffff00";
+  // } else {
+  //   document.body.style.replace.backgroundColor = "#ff0000";
+  // }
+
   outputD = `国内${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計数:${death}) →注① <br> 国内${ageG}のCovid-19感染致死率は<text id="fatality">${fatality +'%'}</text>です。昨年度の交通事故死亡率:${TAfatality2020 +'%'} と比べて${riskFlag}。→注②（${dateD}集計）`;
   return outputD;
 }
