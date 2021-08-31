@@ -206,7 +206,7 @@ riskCalcButton.onclick = () => {
  `;
 
  searchDivided.innerHTML = `【Googleで最新の記事を検索する】<br>
- <a href="http://www.google.com/search/q?=${uVac} '副反応'">グーグルで"${uVac}" "副反応"を検索する</a>
+ <a href="https://google.com/search?q=${uVac} 副反応">グーグルで"${uVac}" "副反応"を検索する</a>
  `
 
 }
