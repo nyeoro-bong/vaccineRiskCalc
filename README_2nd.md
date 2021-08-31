@@ -3,7 +3,7 @@
 - プログラム本体部分は下記３つのファイルです。
   - VRCalc.html , VRCalc.js , VRCalc.css
 
-- csv形式の以下はダウンロードしたオープンデータです。😅
+- csv形式の以下はダウンロードしたオープンデータです。
 	- demography.csv :年代別発生状況 , eRNumber.csv :R0実行再生産数 , prefectures.csv :都道府県別状況(データ重すぎる為今回不使用）
 
 - vRCSource.shはデータ自動保存用スクリプトです。
