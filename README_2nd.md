@@ -4,11 +4,11 @@
   - VRCalc.html , VRCalc.js , VRCalc.css
 
 - csv形式の以下はダウンロードしたオープンデータです。
-	- demography.csv :年代別発生状況 , eRNumber.csv :R0実行再生産数 , prefectures.csv :都道府県別状況(データ重すぎる為今回不使用）
+	- demography.csv :年代別発生状況 , eRNumber.csv :R0実行再生産数 , prefectures.csv :都道府県別状況(データが重すぎる為今回は使用断念）
 
 - vRCSource.shはデータ自動保存用スクリプトです。
 	- crontabに登録してCSVを毎日自動保存しています。
-	- PCからGitへのプッシュはまだ自動化に至らず、日々手作業です😅
+	- PCからGitへのプッシュはまだ自動化に至らず、日々手作業です。
 
 - vRiscCalcGS.jsは、ほぼ同機能のslackボットです。
   - 去年の夏の特別授業の内容通りの設定で動作します。
