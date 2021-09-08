@@ -196,9 +196,9 @@ riskCalcButton.onclick = () => {
 
   outputDivided.innerHTML = `
   注① 重症者：エクモ等の人工呼吸器を必要とする状態の者<br>
-      (参考）９月６日報道発表資料時点での全世代感染致死率:1.18%　＝（死者数:16354 + 重症:2198）/ 陽性者数:1571372<br>
   注② 交通事故死亡率：計算式＝交通事故死者数(事故原因で30日以内に死亡した者)${deathTrafficAccident2020} ÷ 人身事故発生件数${trafficAccident2020}（年度：2020、単位：%）<br>
-  `
+  (参考）９月６日報道発表資料時点での全世代感染致死率:1.18%　＝（死者数:16354 + 重症:2198）/ 陽性者数:1571372 <br>
+  `;
   
   infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】<br>
  <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00130002&tstat=000001032793&cycle=7&year=20200&month=0"> 令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
@@ -209,6 +209,6 @@ riskCalcButton.onclick = () => {
 
  searchDivided.innerHTML = `【Googleで最新の記事を検索する】<br>
  <a href="https://google.com/search?q=${uVac} 副反応">グーグルで"${uVac}" "副反応"を検索する</a>
- `
+ `;
 
 }
