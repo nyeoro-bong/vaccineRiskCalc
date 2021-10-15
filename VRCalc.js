@@ -197,13 +197,13 @@ riskCalcButton.onclick = () => {
   outputDivided.innerHTML = `
   注① 重症者：エクモ等の人工呼吸器を必要とする状態の者<br>
   注② 交通事故死亡率：計算式＝交通事故死者数(事故原因で30日以内に死亡した者)${deathTrafficAccident2020} ÷ 人身事故発生件数${trafficAccident2020}（年度：2020、単位：%）<br>
-  (参考）１０月９日報道発表資料時点での全世代感染致死率:1.08%　＝（死者数:17902 + 重症:501）/ 陽性者数:1709609 <br>
+  (参考）１０月９日報道発表資料時点での全世代感染致死率:1.08%　＝（死者数:17927 + 重症:483）/ 陽性者数:1710394 <br>
   `;
   
   infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】<br>
  <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00130002&tstat=000001032793&cycle=7&year=20200&month=0"> 令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_yuukousei_anzensei.html"> 新型コロナワクチンの有効性・安全性について | 厚生労働省</a><br>
- <a href="https://www.mhlw.go.jp/stf/newpage_21582.html"> 新型コロナウイルス感染症の現在の状況と厚生労働省の対応について（令和３年10月９日版） | 厚生労働省</a><br>
+ <a href="https://www.mhlw.go.jp/stf/newpage_21584.html"> 新型コロナウイルス感染症の現在の状況と厚生労働省の対応について（令和３年10月10日版） | 厚生労働省</a><br>
  <a href="https://toyokeizai.net/sp/visual/tko/covid19/"> 『東洋経済オンライン「新型コロナウイルス 国内感染の状況」制作：荻原和樹』（CSVデータ参照元）</a><br><br>
  `;
 
