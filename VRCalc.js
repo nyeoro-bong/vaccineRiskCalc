@@ -125,7 +125,7 @@ function processV(){
       break;
     case "moderna":
       outputV = 
-      `モデルナはmRNA型ワクチンで発症予防効果率は約94%です。<br>副反応が確認されておりファイザーに比べて痛みや発熱等症状の発生率が(5〜20pt)高めです。<br>重篤副反応（アナフィラキシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
+      `モデルナはmRNA型ワクチンで発症予防効果率は約94%です。<br>副反応が確認されておりファイザーに比べて痛みや発熱等症状の発生率が(5〜20pt)高めです。<br>まれに起こる重大な副反応として、ショックやアナフィラキシーがあります。<br>また、ごくまれではあるものの、ワクチン接種後に軽症の心筋炎や心膜炎が報告されています。<br>1回目よりも2回目の接種の後に多く、若い方、特に男性に多い傾向が見られます。<br>8/15更新 New!(厚労省 武田／モデルナ社の新型コロナワクチンについて より)`;
       break;
     case "astra-zeneca":
       outputV = 
@@ -197,13 +197,13 @@ riskCalcButton.onclick = () => {
   outputDivided.innerHTML = `
   注① 重症者：エクモ等の人工呼吸器を必要とする状態の者<br>
   注② 交通事故死亡率：計算式＝交通事故死者数(事故原因で30日以内に死亡した者)${deathTrafficAccident2020} ÷ 人身事故発生件数${trafficAccident2020}（年度：2020、単位：%）<br>
-  (参考）１０月９日報道発表資料時点での全世代感染致死率:1.08%　＝（死者数:17927 + 重症:483）/ 陽性者数:1710394 <br>
+  (参考）１０月１５日報道発表資料時点での全世代感染致死率:1.07%　＝（死者数:18078 + 重症:335）/ 陽性者数:1713802 <br>
   `;
   
   infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】<br>
  <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00130002&tstat=000001032793&cycle=7&year=20200&month=0"> 令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_yuukousei_anzensei.html"> 新型コロナワクチンの有効性・安全性について | 厚生労働省</a><br>
- <a href="https://www.mhlw.go.jp/stf/newpage_21584.html"> 新型コロナウイルス感染症の現在の状況と厚生労働省の対応について（令和３年10月10日版） | 厚生労働省</a><br>
+ <a href="https://www.mhlw.go.jp/stf/newpage_21710.html">  新型コロナウイルス感染症の現在の状況と厚生労働省の対応について（令和３年10月16日版） | 厚生労働省</a><br>
  <a href="https://toyokeizai.net/sp/visual/tko/covid19/"> 『東洋経済オンライン「新型コロナウイルス 国内感染の状況」制作：荻原和樹』（CSVデータ参照元）</a><br><br>
  `;
 
