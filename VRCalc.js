@@ -29,7 +29,7 @@ getCSV = () => {
   csvData.addEventListener('load', (event) => {
     const response = event.target.responseText;
     lines = response.split('\n');
-    
+   
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < lines.length ; ++i) {
       datasD[i] = lines[i].split(',');
@@ -49,7 +49,7 @@ getCSVR = () => {
     csvData.addEventListener('load', (event) => {
       const response = event.target.responseText;
       lines = response.split('\n');
-      
+     
       // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
       for (let i = 0; i < lines.length ; ++i) {
         datasR[i] = lines[i].split(',');
@@ -60,7 +60,7 @@ getCSVR = () => {
     console.log(datasR);
     return datasR;
   }
-  
+
 getCSVR();
 
 function processD(){
@@ -77,7 +77,7 @@ function processD(){
   fatality = fatality.toFixed(2); //小数点第2位の数値に成型
   let TAfatality2020 = (deathTrafficAccident2020 / trafficAccident2020)*100; //２０２０年度交通事故致死リスク率を計算
   TAfatality2020 = TAfatality2020.toFixed(2); //小数点第2位の数値に成型
-  
+
   let riskFlag =0;
   if (fatality < TAfatality2020){
     riskFlag = '低い水準です';
@@ -124,12 +124,12 @@ function processV(){
       outputV = `ファイザーはmRNA型ワクチンで発症予防効果率は約95%です。<br>痛みや発熱等の副反応が確認されています。<br>重篤副反応（アナフィラキシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
       break;
     case "moderna":
-      outputV = 
+      outputV =
       `モデルナはmRNA型ワクチンで発症予防効果率は約94%です。<br>副反応が確認されておりファイザーに比べて痛みや発熱等症状の発生率が(5〜20pt)高めです。<br>まれに起こる重大な副反応として、ショックやアナフィラキシーがあります。<br>また、ごくまれではあるものの、ワクチン接種後に軽症の心筋炎や心膜炎が報告されています。<br>1回目よりも2回目の接種の後に多く、若い方、特に男性に多い傾向が見られます。<br>(厚労省 武田／モデルナ社の新型コロナワクチンについて 10/15更新 より)`;
       break;
     case "astra-zeneca":
-      outputV = 
-      `アストラゼネカはウイルスベクター型ワクチンで発症予防効果率は約70%です。<br>副反応および重篤副反応発生率に関する公開データはありません。(厚労省8/4報告資料より)`;
+      outputV =
+      `アストラゼネカはウイルスベクター型ワクチンで発症予防効果率は約70%です。<br>主な副反応は、注射した部分の痛み、頭痛、関節や筋肉の痛み、倦怠感、疲労、寒気、発熱等があります。<br>なお、臨床試験では、これらの症状は２回目の接種時より1回目の接種時の方が、発現頻度が高い傾向が見られています。<br>また、まれに起こる重大な副反応として、ショックやアナフィラキシーがあります。<br>ごく稀ではあるものの、ワクチン接種後に血小板減少症を伴う血栓症（※１）、毛細血管漏出症候群（※２）、ギラン・バレー症候群などの脱髄疾患（※３）を発症した例が、海外で報告されています。`;
       break;
     default:
       outputV = ""
@@ -148,19 +148,19 @@ function riskCalcD() {
       ageG = datasD[3][3];
       break;
     case "30th":
-      ageG = datasD[4][3]; 
+      ageG = datasD[4][3];
       break;
     case "40th":
-      ageG = datasD[5][3]; 
+      ageG = datasD[5][3];
       break;
     case "50th":
-      ageG = datasD[6][3]; 
+      ageG = datasD[6][3];
       break;
     case "60th":
       ageG = datasD[7][3];
       break;
     case "70th":
-      ageG = datasD[8][3]; 
+      ageG = datasD[8][3];
       break;
     case "80th":
       ageG = datasD[9][3];
@@ -187,11 +187,11 @@ riskCalcButton.onclick = () => {
   // uPref = userPrefImput.value;
   uAge = userAgeImput.value;
   uVac = userVacImput.value;
-  
+
   riskCalcD();
-  
+
   let header4 = document.createElement(`h4`);
-  header4.innerHTML = `所属世代層${ageG} ${uName} さんのcovid19感染致死リスク状況<br>【死亡リスク】<br>${outputD} <br>【流行状況】<br>${outputR}<br>【ワクチン公開情報】<br>${outputV}`;  
+  header4.innerHTML = `所属世代層${ageG} ${uName} さんのcovid19感染致死リスク状況<br>【死亡リスク】<br>${outputD} <br>【流行状況】<br>${outputR}<br>【ワクチン公開情報】<br>${outputV}`;
   resultDivided.appendChild(header4);
 
   outputDivided.innerHTML = `
@@ -199,7 +199,7 @@ riskCalcButton.onclick = () => {
   注② 交通事故死亡率：計算式＝交通事故死者数(事故原因で２４時間以内に死亡した者)${deathTrafficAccident2020} ÷ 人身事故発生件数${trafficAccident2020}（年度：2020、単位：%）<br>
   (参考）11月6日報道発表資料時点での全世代感染致死率:1.07%　＝（死者累計数:18,306 + 重症者数:100）/ 陽性者累計数:1,723,799 <br>
   `;
-  
+
   infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】<br>
  <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00130002&tstat=000001032793&cycle=7&year=20200&month=0"> 令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_yuukousei_anzensei.html"> 新型コロナワクチンの有効性・安全性について | 厚生労働省</a><br>
