@@ -190,9 +190,9 @@ riskCalcButton.onclick = () => {
 
   riskCalcD();
 
-  let header4 = document.createElement(`h4`);
-  header4.innerHTML = `所属世代層${ageG} ${uName} さんのcovid19感染致死リスク状況<br>【死亡リスク】<br>${outputD} <br>【流行状況】<br>${outputR}<br>【ワクチン公開情報】<br>${outputV}`;
-  resultDivided.appendChild(header4);
+  let header5 = document.createElement(`h5`);
+  header5.innerHTML = `所属世代層${ageG} ${uName} さんのcovid19感染致死リスク状況<br>【死亡リスク】<br>${outputD} <br>【流行状況】<br>${outputR}<br>【ワクチン公開情報】<br>${outputV}`;
+  resultDivided.appendChild(header5);
 
   outputDivided.innerHTML = `
   注① 重症者：エクモ等の人工呼吸器を必要とする状態の者<br>
@@ -204,7 +204,7 @@ riskCalcButton.onclick = () => {
  <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00130002&tstat=000001032793&cycle=7&year=20200&month=0"> 令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_yuukousei_anzensei.html"> 新型コロナワクチンの有効性・安全性について | 厚生労働省</a><br>
  <a href="https://www.mhlw.go.jp/stf/newpage_22445.html">  新型コロナウイルス感染症の現在の状況と厚生労働省の対応について（令和３年11月27日版） </a><br>
- <a href="https://www.niid.go.jp/niid/ja/2019-ncov/2551-cepr/10790-cepr-b11529-1.html">  SARS-CoV-2の変異株B.1.1.529系統について（第１報）| 国立感染症研究所 </a><br>
+ <a href="https://www.niid.go.jp/niid/ja/2019-ncov/2551-cepr/10792-cepr-b11529-2.html">  SARS-CoV-2の変異株B.1.1.529系統（オミクロン株）について（第２報）| 国立感染症研究所 </a><br>
  <a href="https://toyokeizai.net/sp/visual/tko/covid19/"> 『東洋経済オンライン「新型コロナウイルス 国内感染の状況」制作：荻原和樹』（CSVデータ参照元）</a><br><br>
  `;
 
