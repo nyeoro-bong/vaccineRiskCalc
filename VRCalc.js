@@ -182,7 +182,9 @@ function riskCalcD() {
 
 
 riskCalcButton.onclick = () => {
-  // removeAllchildren(resultDivided);   //演算結果があれば消す
+
+  window.location.reload;
+
   uName = userNameImput.value;
   // uPref = userPrefImput.value;
   uAge = userAgeImput.value;
