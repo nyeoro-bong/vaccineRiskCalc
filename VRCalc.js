@@ -183,8 +183,6 @@ function riskCalcD() {
 
 riskCalcButton.onclick = () => {
 
-  window.location.reload(fales);
-
   uName = userNameImput.value;
   // uPref = userPrefImput.value;
   uAge = userAgeImput.value;
