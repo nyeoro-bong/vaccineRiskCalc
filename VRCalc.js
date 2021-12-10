@@ -205,7 +205,7 @@ riskCalcButton.onclick = () => {
  <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00130002&tstat=000001032793&cycle=7&year=20200&month=0"> 令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_yuukousei_anzensei.html"> 新型コロナワクチンの有効性・安全性について | 厚生労働省</a><br>
  <a href="https://www.mhlw.go.jp/stf/newpage_22578.html">  新型コロナウイルス感染症の現在の状況と厚生労働省の対応について（令和３年12月４日版） </a><br>
- <a href="https://www.mhlw.go.jp/stf/newpage_22647.html">  新型コロナウイルス感染症（変異株）の無症状病原体保有者について（空港検疫）| 厚生労働省</a><br>
+ <a href="https://www.mhlw.go.jp/stf/newpage_22721.html">  新型コロナウイルスの新たな変異株「オミクロン株」の無症状病原体保有者の発生について | 厚生労働省</a><br>
  <a href="https://www.niid.go.jp/niid/ja/2019-ncov/2551-cepr/10817-cepr-b11529-3.html">  SARS-CoV-2の変異株B.1.1.529系統（オミクロン株）について（第３報）| 国立感染症研究所 </a><br>
  <a href="https://toyokeizai.net/sp/visual/tko/covid19/"> 『東洋経済オンライン「新型コロナウイルス 国内感染の状況」制作：荻原和樹』（CSVデータ参照元）</a><br><br>
  `;
