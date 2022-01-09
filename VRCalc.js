@@ -18,8 +18,10 @@ let ageG =0;
 let outputD;
 let outputR;
 let outputV;
-let trafficAccident2020 = 309000; //出典　警察庁交通局交通企画課「令和２年中の交通事故死者について」2021/1/6
-let deathTrafficAccident2020 = 2839; //参照元　https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1
+// let trafficAccident2020 = 309000; //出典　警察庁交通局交通企画課「令和２年中の交通事故死者について」2021/1/6
+// let deathTrafficAccident2020 = 2839; //参照元　https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1
+let trafficAccident2021 = 305425; //出典　警察庁交通局交通企画課「令和２年中の交通事故死者について」2021/1/6
+let deathTrafficAccident2021 = 2636; //参照元　https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1
 
 
 
@@ -75,13 +77,15 @@ function processD(){
   let fatal = serious + death ; //serious と　death から最新日付の同世代致死症例数を計算
   let fatality = (fatal / testedPositive)*100; //致死リスク率を計算
   fatality = fatality.toFixed(2); //小数点第2位の数値に成型
-  let TAfatality2020 = (deathTrafficAccident2020 / trafficAccident2020)*100; //２０２０年度交通事故致死リスク率を計算
-  TAfatality2020 = TAfatality2020.toFixed(2); //小数点第2位の数値に成型
+  // let TAfatality2020 = (deathTrafficAccident2020 / trafficAccident2020)*100; //２０２０年度交通事故致死リスク率を計算
+  // TAfatality2020 = TAfatality2020.toFixed(2); //小数点第2位の数値に成型
+  let TAfatality2021 = (deathTrafficAccident2021 / trafficAccident2021)*100; //２０２１年度交通事故致死リスク率を計算
+  TAfatality2021 = TAfatality2021.toFixed(2); //小数点第2位の数値に成型
 
   let riskFlag =0;
-  if (fatality < TAfatality2020){
+  if (fatality < TAfatality2021){
     riskFlag = '低い水準です';
-  } else if (fatality > TAfatality2020){
+  } else if (fatality > TAfatality2021){
     riskFlag = '高水準のリスクです。<br>感染に備え、ワクチン摂取で発症予防発効する対策が有効です';
   } else {
     riskFlag = '同水準です';
@@ -95,7 +99,7 @@ function processD(){
   //   document.body.style.replace.backgroundColor = "#ff0000";
   // }
 
-  outputD = `国内${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計数:${death}) →注① <br> 国内${ageG}のCovid-19感染致死率は<text id="fatality">${fatality +'%'}</text>です。昨年度の交通事故死亡率:${TAfatality2020 +'%'} と比べて${riskFlag}。→注②（${dateD}集計）`;
+  outputD = `国内${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計数:${death}) →注① <br> 国内${ageG}のCovid-19感染致死率は<text id="fatality">${fatality +'%'}</text>です。昨年度の交通事故死亡率:${TAfatality2021 +'%'} と比べて${riskFlag}。→注②（${dateD}集計）`;
   return outputD;
 }
 
@@ -197,7 +201,7 @@ riskCalcButton.onclick = () => {
 
   outputDivided.innerHTML = `
   注① 重症者:エクモ等の人工呼吸器を必要とする状態の者<br>
-  注② 交通事故死亡率:計算式＝交通事故死者数(事故原因で24h以内に死亡した者)${deathTrafficAccident2020} ÷ 人身事故件数${trafficAccident2020}(年度:2020, 単位:%)<br>
+  注② 交通事故死亡率:計算式＝交通事故死者数(事故原因で24h以内に死亡した者)${deathTrafficAccident2021} ÷ 人身事故件数${trafficAccident2021}(年度:2021, 単位:%)<br>
   (参考)1月8日報道発表資料時点での全世代感染致死率:1.06% = (死者累計数:18,400 + 重症者数:89) / 陽性者累計数:1,749,530<br>
   `;
 
