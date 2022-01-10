@@ -105,7 +105,7 @@ function processD(){
 
 function processR(){
   let date = datasR[datasR.length-2][0]// latestから最新日付を取得
-  let eRNumber = datasR[datasR.length-2][1].toFixed(2); // latestからR0　実行再生算数を取得
+  let eRNumber = datasR[datasR.length-2][1]; // latestからR0　実行再生算数を取得
   let eRNComment = 0; // 実行再生算数コメント用に変数　eRNComment　を作成して初期化
   if (eRNumber < 1) {
     eRNComment = '減少傾向';
