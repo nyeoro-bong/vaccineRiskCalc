@@ -105,7 +105,7 @@ function processD(){
 
 function processR(){
   let date = datasR[datasR.length-2][0]// latestから最新日付を取得
-  let eRNumber = datasR[datasR.length-2][1]; // latestからR0　実行再生算数を取得
+  let eRNumber = datasR[datasR.length-2][1].toFixed(2); // latestからR0　実行再生算数を取得
   let eRNComment = 0; // 実行再生算数コメント用に変数　eRNComment　を作成して初期化
   if (eRNumber < 1) {
     eRNComment = '減少傾向';
@@ -202,14 +202,14 @@ riskCalcButton.onclick = () => {
   outputDivided.innerHTML = `
   注① 重症者:エクモ等の人工呼吸器を必要とする状態の者<br>
   注② 交通事故死亡率:計算式＝交通事故死者数(事故原因で24h以内に死亡した者)${deathTrafficAccident2021} ÷ 人身事故件数${trafficAccident2021}(年度:2021, 単位:%)<br>
-  (参考)1月8日報道発表資料時点での全世代感染致死率:1.06% = (死者累計数:18,400 + 重症者数:89) / 陽性者累計数:1,749,530<br>
+  (参考)1月9日報道発表資料時点での全世代感染致死率:1.05% = (死者累計数:18,402 + 重症者数:90) / 陽性者累計数:1,757,460<br>
   `;
 
   infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】<br>
- <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00130002&tstat=000001032793&cycle=7&year=20200&month=0"> 令和２年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
+ <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00130002&tstat=000001032793&cycle=7&year=20210&month=0&stat_infid=000032160556&result_back=1&cycle_facet=cycle&tclass1val=0"> 令和3年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_yuukousei_anzensei.html"> 新型コロナワクチンの有効性・安全性について | 厚生労働省</a><br>
  <a href="https://www.mhlw.go.jp/stf/newpage_23274.html">  オミクロン株の国内発生状況について | 厚生労働省 </a><br>
- <a href="https://www.mhlw.go.jp/stf/newpage_23272.html">  新型コロナウイルス感染症の現在の状況と厚生労働省の対応について（令和４年１月８日版） | 厚生労働省</a><br>
+ <a href="https://www.mhlw.go.jp/stf/newpage_23275.html">  新型コロナウイルス感染症の現在の状況と厚生労働省の対応について（令和４年１月９日版） | 厚生労働省</a><br>
  <a href="https://www.niid.go.jp/niid/ja/2019-ncov/2484-idsc/10880-covid19-66.html">  SARS-CoV-2 B.1.1.529系統（オミクロン株）感染による新型コロナウイルス感染症の積極的疫学調査（第1報）：感染性持続期間の検討 | 国立感染症研究所 </a><br>
  <a href="https://toyokeizai.net/sp/visual/tko/covid19/"> 『東洋経済オンライン「新型コロナウイルス 国内感染の状況」制作：荻原和樹』（CSVデータ参照元）</a><br><br>
  `;
