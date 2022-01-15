@@ -33,4 +33,5 @@ jobs:
           git config --local user.name "nyeoro-bong"
           git add .
           git commit -m "Update"
+          git pull
           git push
