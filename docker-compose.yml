@@ -6,4 +6,15 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - .:/vaccineRiskCalc
+      # - .:/vaccineRiskCalc
+      - .:/app
+    depends_on:
+      - db
+  db:
+    build:
+      context: "."
+      dockerfile: "db.Dockerfile"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: covid_riskcalk
