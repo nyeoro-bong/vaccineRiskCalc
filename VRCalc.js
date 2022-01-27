@@ -202,15 +202,15 @@ riskCalcButton.onclick = () => {
   outputDivided.innerHTML = `
   注① 重症者:エクモ等の人工呼吸器を必要とする状態の者<br>
   注② 交通事故死亡率:計算式＝交通事故死者数(事故原因で24h以内に死亡した者)${deathTrafficAccident2021} ÷ 人身事故件数${trafficAccident2021}(年度:2021, 単位:%)<br>
-  (参考)1月18日報道発表資料時点での全世代感染致死率:0.98% = (死者累計数:18,434 + 重症者数:261) / 陽性者累計数:1,903,190<br>
+  (参考)1月26日報道発表資料時点での全世代感染致死率:0.84% = (死者累計数:18,559 + 重症者数:470) / 陽性者累計数:2,277,762<br>
   `;
 
   infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】<br>
  <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00130002&tstat=000001032793&cycle=7&year=20210&month=0&stat_infid=000032160556&result_back=1&cycle_facet=cycle&tclass1val=0"> 令和3年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_yuukousei_anzensei.html"> 新型コロナワクチンの有効性・安全性について | 厚生労働省</a><br>
- <a href="https://www.mhlw.go.jp/stf/newpage_23421.html">  新型コロナウイルス感染症（変異株）の患者等の発生について（空港検疫） | 厚生労働省 </a><br>
- <a href="https://www.mhlw.go.jp/stf/newpage_23433.html">  新型コロナウイルス感染症の現在の状況と厚生労働省の対応について（令和４年１月18日版） | 厚生労働省</a><br>
- <a href="https://www.niid.go.jp/niid/ja/2019-ncov/2551-cepr/10903-b11529-period.html">  SARS-CoV-2の変異株B.1.1.529系統（オミクロン株）の潜伏期間の推定：暫定報告 | 国立感染症研究所 </a><br>
+ <a href="https://www.mhlw.go.jp/stf/newpage_23561.html">  新型コロナウイルス感染症（変異株）の患者等の発生について（空港検疫） | 厚生労働省 </a><br>
+ <a href="https://www.mhlw.go.jp/stf/newpage_23597.html">  新型コロナウイルス感染症の現在の状況と厚生労働省の対応について（令和４年１月26日版） | 厚生労働省</a><br>
+ <a href="https://www.niid.go.jp/niid/ja/2019-ncov/2484-idsc/10754-2021-41-10-11-10-17-10-19.html">  新型コロナウイルス感染症サーベイランス週報:発生動向の状況把握 | 国立感染症研究所 </a><br>
  <a href="https://toyokeizai.net/sp/visual/tko/covid19/"> 『東洋経済オンライン「新型コロナウイルス 国内感染の状況」制作：荻原和樹』（CSVデータ参照元）</a><br><br>
  `;
 

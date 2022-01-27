@@ -6,7 +6,6 @@ services:
     ports:
       - 8000:8000
     volumes:
-      # - .:/vaccineRiskCalc
       - .:/app
     depends_on:
       - db
@@ -18,3 +17,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: covid_riskcalk
+    volumes:
+     - covid-riskcalk-data:/var/lib/postgresql/data
+volumes:
+  covid-riskcalk-data:
+    external: true
