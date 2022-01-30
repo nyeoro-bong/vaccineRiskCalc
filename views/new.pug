@@ -1,20 +1,23 @@
 extends layout
 
 block content
-  form(method="post", action="/datasets")
-    div
-      h5 名前
-      input(type="text" name="datasetName")
-    div
+  form(method="post", action="/datasets").my-3
+    div.form-group
+      h5(for="datasetName") おなまえ
+      input(type="text" name="datasetName")#datasetName.form-control
+    div.form-group
       h5 年代
-      textarea(name="uAge")
-    div
+      textarea(name="uAge")#uAge.form-control
+    div.form-group
       h5 検討ワクチン
-      textarea(name="uVac")
-    div
+      textarea(name="uVac")#uVac.form-control
+    div.form-group
+      h5 都道府県
+      textarea(name="uPref")#uPref.form-control
+    div.form-group
       h5 候補日程 (改行して複数入力してください)
-      textarea(name="candidates")
-    div
+      textarea(name="candidates")#candidates.form-control
+    div.form-group
       h5 メモ
-      textarea(name="memo")
-    button(type="submit") データセットをつくる
+      textarea(name="memo")#memo.form-control
+    button(type="submit").btn.btn-info データセットをつくる

@@ -1,10 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  div
-    if user
-      a(href="/logout") #{user.username} をログアウト
-    else
-      a(href="/login") ログイン
+  div.jumbotron.my-3
+    h1.display-4 covidリスク確認くん
+    p.lead covidリスク確認くんは、GitHub認証でき、"おなまえ"を作れて、それぞれのcovid19リスク状況を確認できるサービスです。
+  if user
+    div
+      a(href="/datasets/new").btn.btn-info "おなまえ"を作る
+    - var hasDataset = datasets.length > 0
+    if hasDataset
+      h3.my-3 あなたの作った"おなまえ"一覧
+      table.table
+        tr
+          th "おなまえ"
+          th 更新日時
+        each dataset in datasets
+          tr
+          td
+            a(href=`/datasets/${dataset.datasetId}`) #{dataset.datasetName}
+          td #{dataset.updatedAt}

@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h3.my-3 おなまえの編集
+  form(method="post", action=`/datasets/${dataset.datasetId}?edit=1`)
+    div.form-group
+      label(for="datasetName") おなまえ
+      input(type="text" name="datasetName" value=dataset.datasetName)#datasetName.form-control
+    div.form-group
+      label(for="memo") メモ
+      textarea(name="memo")#memo.form-control #{dataset.memo}
+    div.form-group
+      label 既存の候補日程
+      ul.list-group
+        each candidate in candidates
+          li.list-group-item #{candidate.candidateName}
+      label(for="candidates").my-2 候補日程の追加 (改行して複数入力してください)
+      textarea(name="candidates")#candidates.form-control
+    div
+      button(type="submit").btn.btn-info 以上の内容で予定を編集する
+  h3.my-3 危険な変更
+  form(method="post", action=`/datasets/${dataset.datasetId}?delete=1`)
+    button(type="submit").btn.btn-danger この"おなまえ"を削除する

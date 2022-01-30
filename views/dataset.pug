@@ -1,0 +1,61 @@
+extends layout
+
+block content
+  div.card.my-3
+    div.card-header
+      h4 #{dataset.datasetName}
+    - let userNameImput = dataset.datasetName
+    - let userAgeImput = dataset.uAge
+    - let userVacImput = dataset.uVac
+    div.form-group
+      label(for="riskCalc") 最新のcovid19感染致死＋重症化リスクを
+      button#riskCalc.btn.btn-info.btn-sl 計算する
+
+    div#output-area
+    div#result-area
+    div#info-area
+
+    div.card-body
+      p(style="white-space:pre;") #{dataset.memo}
+    div.card-footer
+      p 作成者: #{dataset.user.username}
+  - var isMine = parseInt(user.id) === dataset.user.userId
+  if isMine
+    div
+      a(href=`/datasets/${dataset.datasetId}/edit`).btn.btn-info この"おなまえ"を編集する
+  h3.my-1 ワクチン摂取状況
+  table.table.table-bordered
+    tr
+      th 日程
+      each user in users
+        //- th #{user.username}
+    each candidate in candidates
+      tr
+        th #{candidate.candidateName}
+        each user in users
+          - var availability = availabilityMapMap.get(user.userId).get(candidate.candidateId)
+          - var availabilityLabels = ['欠', '予', '済'];
+          - var buttonStyles = ['btn-danger', 'btn-secondary', 'btn-success'];
+          td
+            if user.isSelf
+              button(class=`availability-toggle-button btn-sl ${buttonStyles[availability]}`
+                data-dataset-id=dataset.datasetId
+                data-user-id=user.userId
+                data-candidate-id=candidate.candidateId
+                data-availability=availability) #{availabilityLabels[availability]}
+            else
+              h3 #{availabilityLabels[availability]}
+    tr
+      th コメント
+      each user in users
+        if user.isSelf
+          td
+            p
+              #self-comment #{commentMap.get(user.userId)}
+            button(
+              data-dataset-id=dataset.datasetId
+              data-user-id=user.userId)#self-comment-button.btn.btn-info 編集
+        else
+          td
+            p
+              small #{commentMap.get(user.userId)}
