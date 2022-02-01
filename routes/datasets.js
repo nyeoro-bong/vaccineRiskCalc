@@ -8,12 +8,14 @@ const Candidate = require('../models/candidate');
 const User = require('../models/user');
 const Availability = require('../models/availability');
 const Comment = require('../models/comment');
+const csrf = require('csurf');
+const csrfProtection = csrf({ cookie: true });
 
-router.get('/new', authenticationEnsurer, (req, res, next) => {
-  res.render('new', { user: req.user });
+router.get('/new', authenticationEnsurer, csrfProtection, (req, res, next) => {
+  res.render('new', { user: req.user, csurfToken: req.csrfToken() });
 });
 
-router.post('/', authenticationEnsurer, (req, res, next) => {
+router.post('/', authenticationEnsurer, csrfProtection, (req, res, next) => {
   const datasetId = uuid.v4();
   const updatedAt = new Date();
   Dataset.create({
@@ -129,7 +131,7 @@ router.get('/:datasetId', authenticationEnsurer, (req, res, next) => {
 
 });
 
-router.get('/:datasetId/edit', authenticationEnsurer, (req, res, next) => {
+router.get('/:datasetId/edit', authenticationEnsurer, csrfProtection, (req, res, next) => {
   Dataset.findOne({
     where: {
       datasetId: req.params.datasetId
@@ -143,7 +145,8 @@ router.get('/:datasetId/edit', authenticationEnsurer, (req, res, next) => {
         res.render('edit', {
           user: req.user,
           dataset: dataset,
-          candidates: candidates
+          candidates: candidates,
+          csrfToken: req.csrfToken()
         });
       });
     } else {
@@ -158,7 +161,7 @@ function isMine(req, dataset) {
   return dataset && parseInt(dataset.createdBy) === parseInt(req.user.id);
 }
 
-router.post('/:datasetId', authenticationEnsurer, (req, res, next) => {
+router.post('/:datasetId', authenticationEnsurer, csrfProtection, (req, res, next) => {
   Dataset.findOne({
     where: {
       datasetId: req.params.datasetId

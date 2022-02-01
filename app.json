@@ -1,0 +1,7 @@
+{
+  "name": "covid-riskcalk",
+  "description": "covidリスク確認くん",
+  "logo": "",
+  "keywords": ["node"],
+  "image": "heroku/nodejs"
+}

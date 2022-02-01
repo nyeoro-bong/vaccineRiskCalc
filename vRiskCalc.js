@@ -6,7 +6,7 @@ let outputDivided = document.getElementById(`output-area`);
 let resultDivided = document.getElementById(`result-area`);
 let infoDivided = document.getElementById(`info-area`);
 let tweetDivided = document.getElementById(`tweet-area`);
-ß
+
 getCSV = () => {
   let datasD = [];
   let lines = [];
@@ -15,7 +15,7 @@ getCSV = () => {
     const response = event.target.responseText;
     outputDivided.innerHTML = response;
     lines = response.split('\n');
-    
+
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < lines.length ; ++i) {
       datasD[i] = lines[i].split(',');
@@ -33,7 +33,7 @@ getCSVR = () => {
   csvDataR.addEventListener('load', (event) => {
     const responseR = event.target.responseText;
     linesR = responseR.split('\n');
-    
+
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
     for (let i = 0; i < linesR.length ; ++i) {
       datasR[i] = linesR[i].split(',');
@@ -42,7 +42,7 @@ getCSVR = () => {
   });
   csvDataR.open('GET','eRNumber.csv',true);
   csvDataR.send();
-  
+
 }
 
 riskCalcR = () => {
@@ -79,15 +79,15 @@ function riskCalcD() {
       console.log(`年代は ${ageG} です`);
       break;
     case "30th":
-      ageG = datasD[4][3]; 
+      ageG = datasD[4][3];
       console.log(`年代は ${ageG} です`);
       break;
     case "40th":
-      ageG = datasD[5][3]; 
+      ageG = datasD[5][3];
       console.log(`年代は ${ageG} です`);
       break;
     case "50th":
-      ageG = datasD[6][3]; 
+      ageG = datasD[6][3];
       console.log(`年代は ${ageG} です`);
       break;
     case "60th":
@@ -95,7 +95,7 @@ function riskCalcD() {
       console.log(`年代は ${ageG} です`);
       break;
     case "70th":
-      ageG = datasD[8][3]; 
+      ageG = datasD[8][3];
       console.log(`年代は ${ageG} です`);
       break;
     case "80th":
@@ -107,7 +107,7 @@ function riskCalcD() {
       console.log(`年代は ${ageG} です`);
       break;
   }
-    
+
   var datasD = datasD.filter(i => i[3] == ageG); // 同世代の感染状況データを抽出
   var dateD = datasD[datasD.length-1][0] + '/' + datasD[datasD.length-1][1] + '/' + datasD[datasD.length-1][2]; // datasDから最新日付を取得
   var ageGroup = datasD[datasD.length-1][3]; //datasDから世代グループ名を取得
@@ -125,7 +125,7 @@ function riskCalcD() {
   var deathTrafficAccident2020 = 2839; //参照元　https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1
   var TAfatality2020 = (deathTrafficAccident2020 / trafficAccident2020)*100; //２０２０年度交通事故致死リスク率を計算
   TAfatality2020 = TAfatality2020.toFixed(2); //小数点第2位の数値に成型
-  
+
   var riskFlag =0;
   if (fatality < TAfatality2020){
     riskFlag = '低い水準です';
@@ -143,7 +143,7 @@ function riskCalcD() {
 function riskCalcV() {
   var outputV;
   if ( userVac === "phizer"){
-    outputV = 
+    outputV =
     `ファイザーはmRNA型ワクチンで発症予防効果は約95%です。痛みや発熱等の副反応が確認されています。重篤反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
   } else if ( userVac === 'mmoderna'){
     outputV = `モデルナはmRNA型ワクチンで発症予防効果は約94%です。副反応が確認されておりファイザーに比べ痛みや発熱等症状の発生率が(5〜20pt)高めです。重篤反応（アナフィキラシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;

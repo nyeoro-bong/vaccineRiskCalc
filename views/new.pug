@@ -2,6 +2,7 @@ extends layout
 
 block content
   form(method="post", action="/datasets").my-3
+    input(type="hidden" name="_csrf" value!=csrfToken)
     div.form-group
       h5(for="datasetName") おなまえ
       input(type="text" name="datasetName")#datasetName.form-control
