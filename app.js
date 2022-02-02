@@ -102,7 +102,7 @@ app.get('/auth/github/callback',
     } else {
       res.redirect('/');
     }
-});
+  });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
