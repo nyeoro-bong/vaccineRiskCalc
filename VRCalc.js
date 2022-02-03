@@ -33,7 +33,7 @@ getCSV = () => {
     lines = response.split('\n');
    
     // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
-    for (let i = 0; i < lines.length ; ++i) {
+    for (let i = 0; i  < lines.length ; ++i) {
       datasD[i] = lines[i].split(',');
     }
   });
@@ -53,7 +53,7 @@ getCSVR = () => {
       lines = response.split('\n');
      
       // 各行ごとにカンマで区切った文字列を要素とした二次元配列を生成
-      for (let i = 0; i < lines.length ; ++i) {
+      for (let i = 0; i  < lines.length ; ++i) {
         datasR[i] = lines[i].split(',');
       }
     });
@@ -83,23 +83,23 @@ function processD(){
   TAfatality2021 = TAfatality2021.toFixed(2); //小数点第2位の数値に成型
 
   let riskFlag =0;
-  if (fatality < TAfatality2021){
+  if (fatality  < TAfatality2021){
     riskFlag = '低い水準です';
   } else if (fatality > TAfatality2021){
-    riskFlag = '高水準のリスクです。<br>感染に備え、ワクチン摂取で発症予防発効する対策が有効です';
+    riskFlag = '高水準のリスクです。 <br>感染に備え、ワクチン摂取で発症予防発効する対策が有効です';
   } else {
     riskFlag = '同水準です';
   }
 
   // if(fatality == 0.0){
   //   document.body.style.replace.backgroundColor = "#ccffcc";
-  // } else if (fatality <TAfatality2020){
+  // } else if (fatality  <TAfatality2020){
   //   document.body.style.replace.backgroundColor = "#ffff00";
   // } else {
   //   document.body.style.replace.backgroundColor = "#ff0000";
   // }
 
-  outputD = `国内${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計数:${death}) →注① <br> 国内${ageG}のCovid-19感染致死率は<text id="fatality">${fatality +'%'}</text>です。昨年度の交通事故死亡率:${TAfatality2021 +'%'} と比べて${riskFlag}。→注②（${dateD}集計）`;
+  outputD = `国内${ageG}陽性者累計数:${testedPositive}, 致死症例数:${fatal}(= 重症者:${serious} + 死者累計数:${death}) →注①  <br> 国内${ageG}のCovid-19感染致死率は <text id="fatality">${fatality +'%'} </text>です。昨年度の交通事故死亡率:${TAfatality2021 +'%'} と比べて${riskFlag}。→注②（${dateD}集計）`;
   return outputD;
 }
 
@@ -107,11 +107,11 @@ function processR(){
   let date = datasR[datasR.length-2][0]// latestから最新日付を取得
   let eRNumber = datasR[datasR.length-2][1]; // latestからR0　実行再生算数を取得
   let eRNComment = 0; // 実行再生算数コメント用に変数　eRNComment　を作成して初期化
-  if (eRNumber < 1) {
+  if (eRNumber  < 1) {
     eRNComment = '減少傾向';
-  } else if (1 <= eRNumber && eRNumber < 1.1) {
+  } else if (1  <= eRNumber && eRNumber  < 1.1) {
     eRNComment = 'やや増加傾向';
-  } else if (1.1 <= eRNumber && eRNumber < 1.3) {
+  } else if (1.1  <= eRNumber && eRNumber  < 1.3) {
     eRNComment = '増加傾向';
   } else {
     eRNComment = '急速な増加傾向';
@@ -125,19 +125,19 @@ function processR(){
 function processV(){
   switch(uVac) {
     case "phizer":
-      outputV = `ファイザーはmRNA型ワクチンで発症予防効果率は約95%です。<br>痛みや発熱等の副反応が確認されています。<br>重篤副反応（アナフィラキシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
+      outputV = `ファイザーはmRNA型ワクチンで発症予防効果率は約95%です。 <br>痛みや発熱等の副反応が確認されています。 <br>重篤副反応（アナフィラキシー等）発生率は0.3％です。(厚労省8/4報告資料より)`;
       break;
     case "moderna":
       outputV =
-      `モデルナはmRNA型ワクチンで発症予防効果率は約94%です。<br>副反応が確認されておりファイザーに比べて痛みや発熱等症状の発生率が(5〜20pt)高めです。<br>まれに起こる重大な副反応として、ショックやアナフィラキシーがあります。<br>また、ごくまれではあるものの、ワクチン接種後に軽症の心筋炎や心膜炎が報告されています。<br>1回目よりも2回目の接種の後に多く、若い方、特に男性に多い傾向が見られます。<br>(厚労省 武田／モデルナ社の新型コロナワクチンについて 10/15更新 より)`;
+      `モデルナはmRNA型ワクチンで発症予防効果率は約94%です。 <br>副反応が確認されておりファイザーに比べて痛みや発熱等症状の発生率が(5〜20pt)高めです。 <br>まれに起こる重大な副反応として、ショックやアナフィラキシーがあります。 <br>また、ごくまれではあるものの、ワクチン接種後に軽症の心筋炎や心膜炎が報告されています。 <br>1回目よりも2回目の接種の後に多く、若い方、特に男性に多い傾向が見られます。 <br>(厚労省 武田／モデルナ社の新型コロナワクチンについて 10/15更新 より)`;
       break;
     case "astra-zeneca":
       outputV =
-      `アストラゼネカはウイルスベクター型ワクチンで発症予防効果率は約70%です。<br>主な副反応は、注射した部分の痛み、頭痛、関節や筋肉の痛み、倦怠感、疲労、寒気、発熱等があります。<br>なお、臨床試験では、これらの症状は２回目の接種時より1回目の接種時の方が、発現頻度が高い傾向が見られています。<br>また、まれに起こる重大な副反応として、ショックやアナフィラキシーがあります。<br>ごく稀ではあるものの、ワクチン接種後に血小板減少症を伴う血栓症（※１）、毛細血管漏出症候群（※２）、<br>ギラン・バレー症候群などの脱髄疾患（※３）を発症した例が、海外で報告されています。`;
+      `アストラゼネカはウイルスベクター型ワクチンで発症予防効果率は約70%です。 <br>主な副反応は、注射した部分の痛み、頭痛、関節や筋肉の痛み、倦怠感、疲労、寒気、発熱等があります。 <br>なお、臨床試験では、これらの症状は２回目の接種時より1回目の接種時の方が、発現頻度が高い傾向が見られています。 <br>また、まれに起こる重大な副反応として、ショックやアナフィラキシーがあります。 <br>ごく稀ではあるものの、ワクチン接種後に血小板減少症を伴う血栓症（※１）、毛細血管漏出症候群（※２）、 <br>ギラン・バレー症候群などの脱髄疾患（※３）を発症した例が、海外で報告されています。`;
       break;
     default:
       outputV =
-      `国内感染死亡率は大規模摂取開始直後の4~6月平均で1.74%でしたが実施終盤の7~9月平均では0.04%でした。<br>ファイザー／モデルナ製ワクチンのCovid-19感染死亡抑制効果は明らかです。<br>感染致死率が平均を上回る60代以上の方へは早急なワクチン摂取が推奨されます。`
+      `国内感染死亡率は大規模摂取開始直後の4~6月平均で1.74%でしたが実施終盤の7~9月平均では0.04%でした。 <br>ファイザー／モデルナ製ワクチンのCovid-19感染死亡抑制効果は明らかです。 <br>感染致死率が平均を上回る60代以上の方へは早急なワクチン摂取が推奨されます。`
       break;
   }
   return outputV;
@@ -196,26 +196,26 @@ riskCalcButton.onclick = () => {
   riskCalcD();
 
   let header5 = document.createElement(`h5`);
-  header5.innerHTML = `所属世代層${ageG} ${uName} さんのcovid19感染致死リスク状況<br>【死亡リスク】<br>${outputD} <br>【流行状況】<br>${outputR}<br>【ワクチン公開情報】<br>${outputV}`;
+  header5.innerHTML = `所属世代層${ageG} ${uName} さんのcovid19感染致死リスク状況 <br>【死亡リスク】 <br>${outputD}  <br>【流行状況】 <br>${outputR} <br>【ワクチン公開情報】 <br>${outputV}`;
   resultDivided.appendChild(header5);
 
   outputDivided.innerHTML = `
-  注① 重症者:エクモ等の人工呼吸器を必要とする状態の者<br>
-  注② 交通事故死亡率:計算式＝交通事故死者数(事故原因で24h以内に死亡した者)${deathTrafficAccident2021} ÷ 人身事故件数${trafficAccident2021}(年度:2021, 単位:%)<br>
-  (参考)2月2日報道発表資料時点での全世代感染致死率:0.70% = (死者累計数:18,871 + 重症者数:886) / 陽性者累計数:2,811,050<br>
+  注① 重症者:エクモ等の人工呼吸器を必要とする状態の者 <br>
+  注② 交通事故死亡率:計算式＝交通事故死者数(事故原因で24h以内に死亡した者)${deathTrafficAccident2021} ÷ 人身事故件数${trafficAccident2021}(年度:2021, 単位:%) <br>
+  (参考)2月2日報道発表資料時点での全世代感染致死率:0.70% = (死者累計数:18,871 + 重症者数:886) / 陽性者累計数:2,811,050 <br>
   `;
 
-  infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】<br>
- <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00130002&tstat=000001032793&cycle=7&year=20210&month=0&stat_infid=000032160556&result_back=1&cycle_facet=cycle&tclass1val=0"> 令和3年中の交通事故死者について | 警察庁交通局交通企画課</a><br>
- <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_yuukousei_anzensei.html"> 新型コロナワクチンの有効性・安全性について | 厚生労働省</a><br>
- <a href="https://www.mhlw.go.jp/stf/newpage_23640.html">  新型コロナウイルス感染症（変異株）の患者等の発生について（空港検疫） | 厚生労働省 </a><br>
- <a href="https://www.mhlw.go.jp/stf/newpage_23739.html">  新型コロナウイルス感染症の現在の状況と厚生労働省の対応について（令和４年２月２日版） | 厚生労働省</a><br>
- <a href="https://www.niid.go.jp/niid/ja/2019-ncov/2484-idsc/10941-covid19-69.html">  SARS-CoV-2 B.1.1.529系統（オミクロン株）感染による新型コロナウイルス感染症の積極的疫学調査（第4報）: 疫学的・臨床的特徴 | 国立感染症研究所 </a><br>
- <a href="https://toyokeizai.net/sp/visual/tko/covid19/"> 『東洋経済オンライン「新型コロナウイルス 国内感染の状況」制作：荻原和樹』（CSVデータ参照元）</a><br><br>
- `;
+  infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】 <br>
+  <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00130002&tstat=000001032793&cycle=7&year=20210&month=0&stat_infid=000032160556&result_back=1&cycle_facet=cycle&tclass1val=0"> 令和3年中の交通事故死者について | 警察庁交通局交通企画課 </a> <br>
+  <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_yuukousei_anzensei.html"> 新型コロナワクチンの有効性・安全性について | 厚生労働省 </a> <br>
+  <a href="https://www.mhlw.go.jp/stf/newpage_23640.html">  新型コロナウイルス感染症（変異株）の患者等の発生について（空港検疫） | 厚生労働省  </a> <br>
+  <a href="https://www.mhlw.go.jp/stf/newpage_23739.html">  新型コロナウイルス感染症の現在の状況と厚生労働省の対応について（令和４年２月２日版） | 厚生労働省 </a> <br>
+  <a href="https://www.niid.go.jp/niid/ja/2019-ncov/2484-idsc/10941-covid19-69.html">  SARS-CoV-2 B.1.1.529系統（オミクロン株）感染による新型コロナウイルス感染症の積極的疫学調査（第4報）: 疫学的・臨床的特徴 | 国立感染症研究所  </a> <br>
+  <a href="https://toyokeizai.net/sp/visual/tko/covid19/"> 『東洋経済オンライン「新型コロナウイルス 国内感染の状況」制作：荻原和樹』（CSVデータ参照元） </a> <br> <br>
+  `;
 
- searchDivided.innerHTML = `【Googleで最新の記事を検索する】<br>
- <a href="https://google.com/search?q=${uVac} 副反応">グーグルで"${uVac}" "副反応"を検索する</a>
- `;
+ searchDivided.innerHTML = `【Googleで最新の記事を検索する】 <br>
+  <a href="https://google.com/search?q=${uVac} 副反応">グーグルで"${uVac}" "副反応"を検索する </a>
+  `;
 
 }
