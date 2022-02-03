@@ -8,13 +8,37 @@ block content
       input(type="text" name="datasetName")#datasetName.form-control
     div.form-group
       h5 年代
-      textarea(name="uAge")#uAge.form-control
-    div.form-group
+      select(name="uAge")#uAge.form-control
+        option(value="10th") １０代
+        option(value="20th") ２０代
+        option(value="30th") ３０代
+        option(value="40th") ４０代
+        option(value="50th") ５０代
+        option(value="60th") ６０代
+        option(value="70th") ７０代
+        option(value="80th") ８０代以上
       h5 検討ワクチン
-      textarea(name="uVac")#uVac.form-control
+      select(name="uVac")#uVac.form-control
+        option(value="none") 摂取しない
+        option(value="phizer") ファイザー
+        option(value="moderna") モデルナ
+        option(value="astra-zeneca") アストラゼネカ
     div.form-group
       h5 都道府県
-      textarea(name="uPref")#uPref.form-control
+        select(name="uPref")#uPref.form-control
+          option(value="Tokyo") 東京
+          option(value="Hokkaido") 北海道
+          option(value="Miyagi") 宮城
+          option(value="Aichi") 愛知
+          option(value="Osaka") 大阪
+          option(value="Kyoto") 京都
+          option(value="Fukuoka") 福岡
+          option(value="Okinawa") 沖縄
+          option(value="Aomori") 青森
+          option(value="Akita") 秋田
+          option(value="Iwawte") 岩手
+          option(value="Yamagata") 山形
+          option(value="Fukushima") 福島
     div.form-group
       h5 候補日程 (改行して複数入力してください)
       textarea(name="candidates")#candidates.form-control
