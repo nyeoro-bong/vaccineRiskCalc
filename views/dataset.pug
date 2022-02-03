@@ -4,9 +4,12 @@ block content
   div.card.my-3
     div.card-header
       h4 #{dataset.datasetName}
-    - let userNameImput = dataset.datasetName
-    - let userAgeImput = dataset.uAge
-    - let userVacImput = dataset.uVac
+    - let userNameImput=0
+    - let userAgeImput=0
+    - let userVacImput=0
+    - userNameImput.value = dataset.datasetName
+    - userAgeImput.value = dataset.uAge
+    - userVacImput.value = dataset.uVac
     div.form-group
       label(for="riskCalc") 最新のcovid19感染致死＋重症化リスクを
       button#riskCalc.btn.btn-info.btn-sl 計算する
