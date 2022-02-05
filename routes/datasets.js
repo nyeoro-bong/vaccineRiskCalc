@@ -40,8 +40,7 @@ router.get('/:datasetId', authenticationEnsurer, (req, res, next) => {
       {
         model: User,
         attributes: ['userId', 'username']
-      }
-    ],
+      }],
     where: { datasetId: req.params.datasetId },
     order: [['updatedAt', 'DESC']]
   }).then(dataset => {
@@ -69,7 +68,8 @@ router.get('/:datasetId', authenticationEnsurer, (req, res, next) => {
         where: { datasetId: storedDataset.datasetId },
         order: [[User, 'username', 'ASC'], ['candidateId', 'ASC']]
       });
-    }).then((availabilities) => {
+    })
+    .then(availabilities => {
       // 出欠 MapMap(キー:ユーザー ID, 値:出欠Map(キー:候補 ID, 値:出欠)) を作成する
       const availabilityMapMap = new Map(); // key: userId, value: Map(key: candidateId, availability)
       availabilities.forEach(a => {
@@ -85,7 +85,7 @@ router.get('/:datasetId', authenticationEnsurer, (req, res, next) => {
           userId: parseInt(req.user.id),
           username: req.user.username
       });
-      availabilities.forEach((a) => {
+      availabilities.forEach(a => {
         userMap.set(a.user.userId, {
           isSelf: parseInt(req.user.id) === a.user.userId, // 閲覧ユーザー自身であるかを含める
           userId: a.user.userId,
@@ -123,12 +123,6 @@ router.get('/:datasetId', authenticationEnsurer, (req, res, next) => {
         });
       });
     });
-      // } else {
-      //   const err = new Error('指定された予定は見つかりません');
-      //   err.status = 404;
-      //   next(err);
-      // }
-
 });
 
 router.get('/:datasetId/edit', authenticationEnsurer, csrfProtection, (req, res, next) => {
@@ -205,20 +199,20 @@ router.post('/:datasetId', authenticationEnsurer, csrfProtection, (req, res, nex
 function deleteDatasetAggregate(datasetId, done, err) {
   const promiseCommentDestroy = Comment.findAll({
     where: { datasetId: datasetId }
-  }).then((comments) => {
+  }).then(comments => {
     return Promise.all(comments.map(c => { return c.destroy(); }));
   });
 
   Availability.findAll({
     where: { datasetId: datasetId }
-  }).then((availabilities) => {
+  }).then(availabilities => {
     const promises = availabilities.map(a => { return a.destroy(); });
     return Promise.all(promises);
   }).then(() => {
     return Candidate.findAll({
       where: { datasetId: datasetId }
     });
-  }).then((candidates) => {
+  }).then(candidates => {
     const promises = candidates.map(c => { return c.destroy(); });
     promises.push(promiseCommentDestroy);
     return Promise.all(promises);
@@ -245,7 +239,7 @@ function createCandidatesAndRedirect(candidateNames, datasetId, res) {
 }
 
 function parseCandidateNames(req) {
-  return req.body.candidates.trim().split('\n').map((s) => s.trim()).filter((s) => s !== "");
+  return req.body.candidates.trim().split('\n').map(s => s.trim()).filter(s => s !== "");
 };
 
 module.exports = router;

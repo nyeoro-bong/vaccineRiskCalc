@@ -9,7 +9,7 @@ const timezone = require('dayjs/plugin/timezone');
 dayjs.extend(utc);
 dayjs.extend(timezone);
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/', (req, res, next) => {
   const title = 'covidリスク確認くん';
   if (req.user) {
     Dataset.findAll({

@@ -10,11 +10,11 @@ let searchDivided = document.getElementById(`search-area`);
 let tweetDivided = document.getElementById(`tweet-area`);
 let datasD = [];
 let datasR = [];
-let uName =0;
+let uName;
 // let uPref =0;
-let uAge =0;
-let uVac =0;
-let uPref =0;
+let uAge;
+let uVac;
+let uPref;
 let outputD;
 let outputR;
 let outputV;
@@ -188,10 +188,10 @@ function riskCalcD() {
 
 riskCalcButton.onclick = () => {
 
-  uName = userNameImput.value;
+  uName = dataset.datasetName || userNameImput.value;
   // uPref = userPrefImput.value;
-  uAge = userAgeImput.value;
-  uVac = userVacImput.value;
+  uAge = dataset.uAge || userAgeImput.value;
+  uVac = dataset.uVac || userVacImput.value;
 
   riskCalcD();
 

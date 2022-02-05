@@ -16,6 +16,6 @@ block content
           th 更新日時
         each dataset in datasets
           tr
-          td
-            a(href=`/datasets/${dataset.datasetId}`) #{dataset.datasetName}
-          td #{dataset.updatedAt}
+            td
+              a(href=`/datasets/${dataset.datasetId}`) #{dataset.datasetName}
+            td #{dataset.updatedAt}
