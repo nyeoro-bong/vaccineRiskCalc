@@ -17208,11 +17208,11 @@ var searchDivided = document.getElementById("search-area");
 var tweetDivided = document.getElementById("tweet-area");
 var datasD = [];
 var datasR = [];
-var uName = 0; // let uPref =0;
+var uName; // let uPref =0;
 
-var uAge = 0;
-var uVac = 0;
-var uPref = 0;
+var uAge;
+var uVac;
+var uPref;
 var outputD;
 var outputR;
 var outputV; // let trafficAccident2020 = 309000; //出典　警察庁交通局交通企画課「令和２年中の交通事故死者について」2021/1/6
@@ -17402,10 +17402,10 @@ function riskCalcD() {
 
 
 riskCalcButton.onclick = function () {
-  uName = userNameImput.value; // uPref = userPrefImput.value;
+  uName = dataset.datasetName || userNameImput.value; // uPref = userPrefImput.value;
 
-  uAge = userAgeImput.value;
-  uVac = userVacImput.value;
+  uAge = dataset.uAge || userAgeImput.value;
+  uVac = dataset.uVac || userVacImput.value;
   riskCalcD();
   var header5 = document.createElement("h5");
   header5.innerHTML = "\u6240\u5C5E\u4E16\u4EE3\u5C64".concat(ageG, " ").concat(uName, " \u3055\u3093\u306Ecovid19\u611F\u67D3\u81F4\u6B7B\u30EA\u30B9\u30AF\u72B6\u6CC1 <br>\u3010\u6B7B\u4EA1\u30EA\u30B9\u30AF\u3011 <br>").concat(outputD, "  <br>\u3010\u6D41\u884C\u72B6\u6CC1\u3011 <br>").concat(outputR, " <br>\u3010\u30EF\u30AF\u30C1\u30F3\u516C\u958B\u60C5\u5831\u3011 <br>").concat(outputV);
