@@ -206,24 +206,24 @@ function deleteDatasetAggregate(datasetId, done, err) {
   const promiseCommentDestroy = Comment.findAll({
     where: { datasetId: datasetId }
   }).then((comments) => {
-    return Promise.all(comments.map((c) => { return c.destroy(); }));
+    return Promise.all(comments.map(c => { return c.destroy(); }));
   });
 
   Availability.findAll({
     where: { datasetId: datasetId }
   }).then((availabilities) => {
-    const promises = availabilities.map((a) => { return a.destroy(); });
+    const promises = availabilities.map(a => { return a.destroy(); });
     return Promise.all(promises);
   }).then(() => {
     return Candidate.findAll({
       where: { datasetId: datasetId }
     });
   }).then((candidates) => {
-    const promises = candidates.map((c) => { return c.destroy(); });
+    const promises = candidates.map(c => { return c.destroy(); });
     promises.push(promiseCommentDestroy);
     return Promise.all(promises);
   }).then(() => {
-    return Dataset.findByPk(datasetId).then((s) => { return s.destroy(); });
+    return Dataset.findByPk(datasetId).then(d => { return d.destroy(); });
   }).then(() => {
     if (err) return done(err);
     done();
@@ -233,7 +233,7 @@ function deleteDatasetAggregate(datasetId, done, err) {
 router.deleteDatasetAggregate = deleteDatasetAggregate;
 
 function createCandidatesAndRedirect(candidateNames, datasetId, res) {
-  const candidates = candidateNames.map((c) => {
+  const candidates = candidateNames.map(c => {
     return {
       candidateName: c,
       datasetId: datasetId
@@ -249,46 +249,3 @@ function parseCandidateNames(req) {
 };
 
 module.exports = router;
-
-//     //       res.render('dataset', {
-//     //         user: req.user,
-//     //         dataset: dataset,
-//     //         candidates: candidates,
-//     //         users: [req.user],
-//     //         availabilityMapMap: availabilityMapMap
-//     //       });
-//     //     });
-//     //   });
-
-
-
-
-//     //   storedCandidates = candidates;
-//     //   });
-//     // })
-//     // .then((availabilities) => {
-
-//     //     });
-//     //   });
-
-//     //   const err = new Error('指定された予定がない、または、編集する権限がありません');
-//     //   err.status = 404;
-//     //   next(err);
-//     }
-//   });
-
-
-
-
-
-
-//       // コメント取得
-//       Comment.findAll({
-//         where: { datasetId: dataset.datasetId }
-//       }).then((comments) => {
-//         const commentMap = new Map();  // key: userId, value: comment
-//         comments.forEach((comment) => {
-//           commentMap.set(comment.userId, comment.comment);
-//         });
-//   });
-// });
