@@ -188,10 +188,10 @@ function riskCalcD() {
 
 riskCalcButton.onclick = () => {
 
-  uName = dataset.datasetName || userNameImput.value;
+  uName = userNameImput.value;
   // uPref = userPrefImput.value;
-  uAge = dataset.uAge || userAgeImput.value;
-  uVac = dataset.uVac || userVacImput.value;
+  uAge = userAgeImput.value;
+  uVac = userVacImput.value;
 
   riskCalcD();
 
