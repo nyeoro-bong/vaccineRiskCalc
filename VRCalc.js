@@ -195,6 +195,7 @@ riskCalcButton.onclick = () => {
   uVac = userVacImput.value;
 
   let deathratio =  (dead + heavy) / positive;
+  deathratio = parseInt(deathratio);
   deathratio = deathratio.toFixed(2);
 
 
