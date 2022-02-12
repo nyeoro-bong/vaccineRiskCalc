@@ -5,7 +5,7 @@ const authenticationEnsurer = require('./authentication-ensurer');
 const Comment = require('../models/comment');
 
 router.post(
-  '/:datasetId/users/:userId/comments',
+  '/datasets/:datasetId/users/:userId/comments',
   authenticationEnsurer,
   (req, res, next) => {
     const datasetId = req.params.datasetId;

@@ -5,7 +5,7 @@ const authenticationEnsurer = require('./authentication-ensurer');
 const Availability = require('../models/availability');
 
 router.post(
-  '/:datasetId/users/:userId/candidates/:candidateId',
+  '/datasets/:datasetId/users/:userId/candidates/:candidateId',
   authenticationEnsurer,
   (req, res, next) => {
     const datasetId = req.params.datasetId;
