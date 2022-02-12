@@ -191,7 +191,7 @@ riskCalcButton.onclick = () => {
 
   uName = userNameImput.value;
   // uPref = userPrefImput.value;
-  uAge = userAgeImput.value;git
+  uAge = userAgeImput.value;
   uVac = userVacImput.value;
 
   let deathratio =  (dead + heavy) / positive;
