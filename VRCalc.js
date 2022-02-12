@@ -22,9 +22,10 @@ let outputV;
 // let deathTrafficAccident2020 = 2839; //参照元　https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1
 let trafficAccident2021 = 305425; //出典　警察庁交通局交通企画課「令和２年中の交通事故死者について」2021/1/6
 let deathTrafficAccident2021 = 2636; //参照元　https://www.e-stat.go.jp/stat-search/file-download?statInfId=000032035150&fileKind=1
-let dead;
-let heavy;
-let positive;
+let dead=0;
+let heavy=0;
+let positive=0;
+let deathratio=0;
 
 getCSV = () => {
   let lines = [];
@@ -194,8 +195,7 @@ riskCalcButton.onclick = () => {
   uAge = userAgeImput.value;
   uVac = userVacImput.value;
 
-  let deathratio =  (dead + heavy) / positive;
-  deathratio = parseInt(deathratio);
+  deathratio =  (dead + heavy) / positive;
   deathratio = deathratio.toFixed(2);
 
 
