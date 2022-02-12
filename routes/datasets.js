@@ -32,7 +32,7 @@ router.post('/', authenticationEnsurer, csrfProtection, (req, res, next) => {
   });
 });
 
-router.get('/:datasetId', authenticationEnsurer, (req, res, next) => {
+router.get('/datasets/:datasetId', authenticationEnsurer, (req, res, next) => {
   let storedDataset = null;
   let storedCandidates = null;
   Dataset.findOne({
@@ -125,7 +125,7 @@ router.get('/:datasetId', authenticationEnsurer, (req, res, next) => {
     });
 });
 
-router.get('/:datasetId/edit', authenticationEnsurer, csrfProtection, (req, res, next) => {
+router.get('/datasets/:datasetId/edit', authenticationEnsurer, csrfProtection, (req, res, next) => {
   Dataset.findOne({
     where: {
       datasetId: req.params.datasetId
@@ -155,7 +155,7 @@ function isMine(req, dataset) {
   return dataset && parseInt(dataset.createdBy) === parseInt(req.user.id);
 }
 
-router.post('/:datasetId', authenticationEnsurer, csrfProtection, (req, res, next) => {
+router.post('/datasets/:datasetId', authenticationEnsurer, csrfProtection, (req, res, next) => {
   Dataset.findOne({
     where: {
       datasetId: req.params.datasetId
