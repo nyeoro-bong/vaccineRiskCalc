@@ -195,7 +195,7 @@ riskCalcButton.onclick = () => {
   uAge = userAgeImput.value;
   uVac = userVacImput.value;
 
-  deathratio =  (dead + heavy) / positive;
+  deathratio =  (parseInt(dead) + parseInt(heavy)) / parseInt(positive);
   deathratio = deathratio.toFixed(2);
 
 
