@@ -204,7 +204,7 @@ riskCalcButton.onclick = () => {
   dead = 23011;
   heavy = 1507;
   positive = 4815692;
-  deathratio = ( parseInt(dead) + parseInt(heavy) ) / parseInt(positive);
+  deathratio = ( parseInt(dead) + parseInt(heavy) ) / parseInt(positive) * 100;
   deathratio = parseInt(deathratio).toFixed(2);
 
   outputDivided.innerHTML = `
