@@ -205,7 +205,7 @@ riskCalcButton.onclick = () => {
   heavy = 955;
   positive = 6061939;
   deathratio = (dead + heavy) / positive * 100 ;
-  deathratio = parseInt(deathratio).toFixed(2);
+  deathratio = deathratio.toFixed(2);
 
   outputDivided.innerHTML = `
   注① 重症者:エクモ等の人工呼吸器を必要とする状態の者 <br>
