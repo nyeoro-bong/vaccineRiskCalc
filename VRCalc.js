@@ -201,22 +201,22 @@ riskCalcButton.onclick = () => {
   header5.innerHTML = `所属世代層${ageG} ${uName} さんのcovid19感染致死リスク状況 <br>【死亡リスク】 <br>${outputD}  <br>【流行状況】 <br>${outputR} <br>【ワクチン公開情報】 <br>${outputV}`;
   resultDivided.appendChild(header5);
 
-  dead = 29402;
-  heavy = 183;
-  positive = 7725765;
+  dead = 29683;
+  heavy = 174;
+  positive = 7952152;
   deathratio = (dead + heavy) / positive * 100 ;
   deathratio = deathratio.toFixed(2);
 
   outputDivided.innerHTML = `
   注① 重症者:エクモ等の人工呼吸器を必要とする状態の者 <br>
   注② 交通事故死亡率:計算式＝交通事故死者数(事故原因で24h以内に死亡した者)${deathTrafficAccident2021} ÷ 人身事故件数${trafficAccident2021}(年度:2021, 単位:%) <br>
-  (参考)4月27日報道発表資料時点での全世代感染致死率:${deathratio}% = (死者累計数:${dead} + 重症者数:${heavy}) / 陽性者累計数:${positive} <br>
+  (参考)5月4日報道発表資料時点での全世代感染致死率:${deathratio}% = (死者累計数:${dead} + 重症者数:${heavy}) / 陽性者累計数:${positive} <br>
   `;
 
   infoDivided.innerHTML = `【オープンデータ掲載ソースを確認する】 <br>
   <a href="https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00130002&tstat=000001032793&cycle=7&year=20210&month=0&stat_infid=000032160556&result_back=1&cycle_facet=cycle&tclass1val=0"> 令和3年中の交通事故死者について | 警察庁交通局交通企画課 </a> <br>
   <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/vaccine_yuukousei_anzensei.html"> 新型コロナワクチンの有効性・安全性について | 厚生労働省 </a> <br>
-  <a href="https://www.mhlw.go.jp/stf/newpage_25454.html">  新型コロナウイルス感染症の現在の状況と厚生労働省の対応について（令和４年４月27日版）| 厚生労働省 </a> <br>
+  <a href="https://www.mhlw.go.jp/stf/newpage_25535.html">  新型コロナウイルス感染症の現在の状況と厚生労働省の対応について（令和４年５月４日版）| 厚生労働省 </a> <br>
   <a href="https://www.niid.go.jp/niid/ja/2019-ncov/2551-cepr/11059-covid19-15.html">  感染・伝播性の増加や抗原性の変化が懸念される 新型コロナウイルス（SARS-CoV-2）の変異株について （第15報）| 国立感染症研究所  </a> <br>
   <a href="https://toyokeizai.net/sp/visual/tko/covid19/"> 『東洋経済オンライン「新型コロナウイルス 国内感染の状況」制作：荻原和樹』（CSVデータ参照元） </a> <br> <br>
   `;
